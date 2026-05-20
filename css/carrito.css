@@ -1,0 +1,149 @@
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0 , 0, 0.3);
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.mensajeCarrito{
+    background-color: #0f766e;
+}
+
+.overlay.activo{
+    display: block;
+}
+
+.carrito-menu-lateral{
+    background-color: #fff;
+    width: 300px;
+    height: 500px;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);   
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+}
+
+.carrito-contenidoProductos{
+    display: flex;
+    align-items: end; /* Alinea verticalmente al centro */
+    justify-content: start; /* todo el contenido lo coloca al principio de la pantalla */
+    gap: 4px; /* Espacio de separación entre el número y el texto */
+    padding: 15px;
+}
+
+
+h2{
+    text-align: center;
+}
+
+.carrito-menu-lateral.activo{
+    transform: translateX(0%);
+
+}
+
+.carrito-lista{
+    flex: 1;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+}
+/*mensaje al usuario que dice que el carro esta vacio*/
+.mensaje-carrito{
+    text-align: center;        
+    color: #ff6b6b;             /* Un color bonito y llamativo (rojo/coral) */
+    font-size: 20px;            /* Tamaño de letra grande para destacar */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente moderna */
+    font-weight: bold;          /* Texto en negrita */
+    
+}
+
+
+
+/* ******************COPIA CSS CARRITO*************** */
+/* Padre de 2 div con las clases informacion-proucto y .informacion-botones */
+.carrito-producto{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+}
+
+
+.carrito-producto img{
+    height: 90px;
+    width: 90px;
+
+}
+
+.informacion-producto{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+    
+}
+/*padre de titulo y total del producto*/
+.detalle-producto{
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+
+
+
+/*botones de suma y resta con un p que reprsenta el numero*/
+.informacion-botones{
+    display: flex;
+    flex-direction: row;
+    gap: 50px; /* Espacio entre el precio y la fila de botones */
+    background-color: #0f766e;
+    align-items: center;
+
+}
+/*botones de suma resta y un p representando un numero */
+.contenedor-botones {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.informacion-botones button{
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bolder;
+}
+
+.basurero-icono{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #ffcccc; 
+    gap: 10px;
+    
+}
+
+.basurero-icono i{
+    font-size: 18px;
+    
+}
+
+
+
+

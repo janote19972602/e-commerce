@@ -1,0 +1,118 @@
+#grillaProductos{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  padding: 16px;
+  background-color: #b0eac8;
+  align-items: stretch;/*solucion pero no funciona si agrando el padding, si agrando en px el padding no aplica */
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: white;
+  transition: transform 0.3s ease;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.8);
+}
+
+.card:hover{
+  transform: translateY(-3px);
+}
+
+.card img {
+  width: 80%;
+  height: 80%;
+  object-position: center; /* Centra la imagen */
+}
+
+.info-producto{
+  display: flex;               
+  flex-direction: column;      
+  gap: 40px;                   
+  font-family: Arial, sans-serif;
+}
+
+.card-titulo{
+  font-weight: bolder;
+  height: 48px;
+  
+}
+
+.card-categoria{
+  color: #666; font-size: 0.9em;
+}
+
+.card-precio{
+  color: #0f766e; font-weight: bold;
+}
+
+.card-rating{
+  color: #f1c40f;
+}
+
+/* div de botones */
+.botones {
+  display: flex; 
+  gap: 10px; /* Espacio entre botones */
+  padding: 15px;
+}
+
+/* estilos para los botones */
+.botones button {
+  flex: 1;
+  color: white; /* Texto blanco */
+  padding: 12px 24px; /* Tamaño del mouse raton */
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Suavizar cambio */
+}
+
+/* Selecciona el primer boton */
+.botones button:first-child {
+  background-color: rgb(209, 118, 53); /* Rojo claro */
+  color: white;                
+}
+
+
+/* Selecciona el segundo botón */
+.botones button:last-child {
+  background-color: rgb(91, 111, 211);      
+  color: white;          
+}
+
+/* boton del aside ver carrito del html */
+.carrito-acciones{
+  display: flex;                /* 1. Activa Flexbox */
+  justify-content: center;      /* 2. Centra horizontalmente */
+  width: 100%;                  /* 3. El div ocupa todo el ancho */
+  padding: 10px;                /* Espaciado opcional */
+  box-sizing: border-box;       /* Evita problemas de padding */
+}
+
+.carrito-mostrar{
+  width: 90%;                   /* 4. El botón ocupa el 90% del div (casi todo) */
+  max-width: 400px;             /* 5. Evita que sea demasiado ancho en pantallas grandes */
+  padding: 15px 20px;           /* 6. "Lindo": Padding interno para mayor altura */
+  background-color: #28a745;    /* Color de fondo ejemplo */
+  color: white;                 /* Color de texto */
+  border: none;
+  border-radius: 8px;           /* Bordes redondeados */
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+/* Efecto al pasar el mouse (opcional) */
+.carrito-mostrar:hover {
+    background-color: #218838;
+}
+
+
+
+
+
+
+
