@@ -47,9 +47,3 @@ export function eliminarProductoCarrito(productoCarrito) {
     // El metodo .filter() crea un nuevo arreglo con todos los elementos que cumplan una condición.
 
 }
-
-// export function calcularSubTotalCarrito(cantidad, precio ) {
-//     return cantidad * precio;
-
-    
-// }
