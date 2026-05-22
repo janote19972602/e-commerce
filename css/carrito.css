@@ -1,3 +1,4 @@
+/*fondo oscuro*/
 .overlay{
     position: fixed;
     top: 0;
@@ -19,15 +20,22 @@
 .carrito-menu-lateral{
     background-color: #fff;
     width: 300px;
-    height: 500px;
+    min-height: 200px;
     position: fixed;
-    top: 0px;
-    right: 0px;
+    top: 1rem;
+    right: 1rem;
     display: flex;
     flex-direction: column;
-    transform: translateX(100%);   
+    transform: translateX(calc(100% + 1rem));   
     transition: transform 0.3s ease;
     border-radius: 8px;
+    z-index: 20;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.8);
+}
+
+.carrito-menu-lateral.activo{
+    transform: translateX(0%);
+
 }
 
 .carrito-contenidoProductos{
@@ -43,26 +51,14 @@ h2{
     text-align: center;
 }
 
-.carrito-menu-lateral.activo{
-    transform: translateX(0%);
-
-}
 
 .carrito-lista{
     flex: 1;
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     margin-top: 30px;
-}
-/*mensaje al usuario que dice que el carro esta vacio*/
-.mensaje-carrito{
-    text-align: center;        
-    color: #ff6b6b;             /* Un color bonito y llamativo (rojo/coral) */
-    font-size: 20px;            /* Tamaño de letra grande para destacar */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente moderna */
-    font-weight: bold;          /* Texto en negrita */
     
 }
 
@@ -77,46 +73,44 @@ h2{
     position: relative;
 }
 
-
 .carrito-producto img{
     height: 90px;
     width: 90px;
+}
 
+.contenedor-producto{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
 }
 
 .informacion-producto{
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-    
+    flex-direction: column;
+    gap: 20px;
+    background-color: rebeccapurple;
+    flex: 1;/*ocupa todo el espacio disponible*/
 }
-/*padre de titulo y total del producto*/
-.detalle-producto{
+
+.primera-parte{
     display: flex;
     flex-direction: row;
-    gap: 12px;
+    background-color: orange;
+    justify-content: space-between;
 }
-
-
-
-/*botones de suma y resta con un p que reprsenta el numero*/
-.informacion-botones{
+.segunda-parte{
     display: flex;
-    flex-direction: row;
-    gap: 50px; /* Espacio entre el precio y la fila de botones */
-    background-color: #0f766e;
     align-items: center;
+    gap: 10px; 
+} 
 
-}
-/*botones de suma resta y un p representando un numero */
-.contenedor-botones {
+.contenedor-botones{
     display: flex;
     align-items: center;
     gap: 10px;
-}
-
-.informacion-botones button{
+    
+}/*afecta a los botones + y -*/
+.contenedor-botones button{
     width: 20px;
     height: 20px;
     font-size: 20px;
@@ -124,6 +118,24 @@ h2{
     align-items: center;
     justify-content: center;
     font-weight: bolder;
+}
+
+/* Alinea el precio y los botones en columna */
+.precio-contador-contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+    background-color: forestgreen;
+}
+
+.mensaje-carrito{
+    text-align: center;        
+    color: #ff6b6b;             /* Un color bonito y llamativo (rojo/coral) */
+    font-size: 20px;            /* Tamaño de letra grande para destacar */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente moderna */
+    font-weight: bold;          /* Texto en negrita */
+    
 }
 
 .basurero-icono{
@@ -136,13 +148,8 @@ h2{
     cursor: pointer;
     background-color: #ffcccc; 
     gap: 10px;
-    
 }
 
-.basurero-icono i{
-    font-size: 18px;
-    
-}
 
 
 

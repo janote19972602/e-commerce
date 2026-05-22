@@ -1,11 +1,16 @@
-nav{
+.nav-container{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 70px;
-    width: 95%;
+    height: 50px;
+    width: 100%;
     margin: 0 auto;
     padding: 20px;
+    background-color: rgb(115, 210, 210);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
 }
 
 .navbar-buscador input{

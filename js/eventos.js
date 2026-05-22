@@ -65,9 +65,13 @@ function manejarEventosGrilla(e) {
         spanContador.textContent = obtenerTotalCarrito();    
     }
 
-    //si funciona
-    // if (e.target.classList.contains('carrito-ver'));
-    // crearBotonVerDetalles();    
+    if (e.target.classList.contains('carrito-ver')) {
+        window.location.href = 'producto.html';
+        
+        
+    }
+
+    
 }
 
 //logica de los botones mas(+) y menos(-) en el menu lateral al seleccionar los botones + y -, como llego a esos tras la delegacion D.E

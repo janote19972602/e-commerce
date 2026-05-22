@@ -5,6 +5,7 @@
   padding: 16px;
   background-color: #b0eac8;
   align-items: stretch;/*solucion pero no funciona si agrando el padding, si agrando en px el padding no aplica */
+  margin-top: 40px;
 }
 
 .card {
