@@ -14,6 +14,8 @@ const spanContador = document.getElementById('contador');
 
 export function crearEventos() {
 
+    console.log(navbarCarrito);
+    
     navbarCarrito.addEventListener('click', abrirCarrito);
     overlay.addEventListener('click', cerrarCarrito);  
     grillaProductos.addEventListener('click', manejarEventosGrilla);
@@ -66,7 +68,7 @@ function manejarEventosGrilla(e) {
     }
 
     if (e.target.classList.contains('carrito-ver')) {
-        window.location.href = 'producto.html';
+        window.location.href = `producto.html?id=1`;
         
         
     }
@@ -77,8 +79,15 @@ function manejarEventosGrilla(e) {
 //logica de los botones mas(+) y menos(-) en el menu lateral al seleccionar los botones + y -, como llego a esos tras la delegacion D.E
 function manejarEventosMenuLateral(e) {
 
+    if (e.target.classList.contains('carrito-mostrar')) {
+        console.log('click');
+        return;        
+    }
+
     //el producto se encuentra en un div con la clase carrito-producto y se guarda en una const, se escoge
-    const divCarritoProducto = e.target.closest('.carrito-producto');
+    const divCarritoProducto = e.target.closest('.carrito-producto');  
+    
+    if (!divCarritoProducto) return;
 
     //busca el id del producto que se quire sumar o disminuir y se transforma en entero porque es 1 int entero
     const idProducto = Number(divCarritoProducto.dataset.idproducto); 
@@ -120,8 +129,9 @@ function manejarEventosMenuLateral(e) {
     if (btnEliminar) {        
         eliminarProductoCarrito(productoDelCarrito);
         renderizarCarrito(obtenerCarrito());
-
     }
+
+    
 }
 
 
