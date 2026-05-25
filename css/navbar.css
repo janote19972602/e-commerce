@@ -13,16 +13,60 @@
     z-index: 10;
 }
 
-.navbar-buscador input{
-    padding: 5px;
-    border: 1px solid #941616;
-    border-radius: 5px;
-    font-size: 15px;
+/* INICIO DEL LOGO DE E-COMMERCE */
+.navbar-logo{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px; /* Espacio entre el ícono y el texto */
+    color: #ffffff; /* Color del texto */
+    cursor: pointer;
 }
 
+/* MOUSE A MANITO */
+.navbar-logo h2{
+    color: #000; 
+    font-family: 'Arial', sans-serif;
+    font-weight: 700;
+    transition: color 0.3s ease; /* Hace que el cambio de color sea suave */
+}
+
+.navbar-logo:hover h2 {
+    color: #28a745; 
+}
+/* FIN A LOGO E-COMMERCE */
+
+/* INICIO A INPUT BUSCADOR */
+.navbar-buscador{
+    flex-grow: 1;
+    max-width: 500px;
+    
+}
+
+.navbar-buscador input{
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #f3f4f6; /* Fondo gris muy claro y elegante */
+    border: 1px solid #e5e7eb;
+    border-radius: 25px; /* Bordes redondeados */
+    font-size: 14px;
+    color: #374151;
+    transition: all 0.3s ease;
+    outline: none;/*regla que elimina el contorno o borde visual*/
+}
+
+/* CARRITO DE SUPERMERCADO */
 .navbar-carrito{
     position: relative;
+    display: flex;
+    align-items: center;
     cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.navbar-carrito i {
+    font-size: 24px;
+    transition: color 0.3s ease;
 }
 
 .carrito-contador{

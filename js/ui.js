@@ -3,7 +3,7 @@ import { obtenerTotalCarrito } from "./carrito.js";
 //encargado de renderizar el html 
 let productosGlobal = [];
 
-//funcion que es exportada la cual se encarga solamente de dibujar la UI 
+//funcion que es exportada la cual se encarga DE dibujar la UI GRILLA DE PRODUCTOS
 export function crearGrillaProductos(productos) {
 
     //se va a buscar por id a la grilla y se guarda en una const para despues ocuparla
@@ -65,6 +65,9 @@ export function renderizarCarrito(arregloCarrito) {
      if (arregloCarrito.length === 0) {
         listaCarrito.innerHTML = '<p class="mensaje-carrito">Tu carrito está vacío!</p>'
         actualizarContadores();
+        //poner invisible el boton ver carritos
+        const btnVerCarrito = document.getElementById('btnVerCarrito');
+        btnVerCarrito.classList.add('ocultar');
         return;
     }
 
@@ -113,22 +116,26 @@ export function renderizarCarrito(arregloCarrito) {
     
 }
 
-//creacion por DDE al boton "ver detalles" de la grilla de productos
-// export function crearBotonVerDetalles(datosVerDetalles) {
+//FUNCION QUE ARMA LA PAGINA EL DISEÑO DEL DETALLE DEL PRODUCTO, CREA TODO
+export function renderizarDetalleProducto(producto) {
 
+    //buscar en el html con su id y se almacena en una const
+    const productoGlobal = document.getElementById('detalleProducto');
+    productoGlobal.innerHTML = '';
+
+    let html = ''; 
+
+    html+= `<div class="carrito-producto" data-idproducto="${producto.id}">
+                    <div class="contenedor-producto">  
+                        <img src="${producto.thumbnail}"> 
+                        <p class="titulo">${producto.title}</p> 
+                    </div>
+            </div>
+                <hr>
+                `    
+
+    //SE INSERTA AL HTML PARA QUE ASI SE PUEDA VER LA PAGINA
+    productoGlobal.innerHTML = html;
     
-//     const paginaVerDetalles = document.querySelectorAll('.carrito-ver');
-//     paginaVerDetalles.innerHTML = '';
+}
 
-//     let html = '';
-
-//     datosVerDetalles.forEach(detalle =>{
-
-//         html += `<div class="pagina" data-idproducto="${detalle.id}">
-//                     <img src="${detalle.thumbnail}"> 
-//                 </div>
-
-//     `
-//         })
-//         paginaVerDetalles.innerHTML = html;
-// }

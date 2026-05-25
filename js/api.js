@@ -17,3 +17,15 @@ export function obtenerProductos() {
     })
     
 }
+//ESA ES LLAMADA Y UTILIZADA EN LA CONEXION DONDE SE CONSUMEN JSON, TEXTO CON UN
+//ID EN ESPECIFICO
+export function obtenerProductoPorId(id){
+
+    return fetch(`https://dummyjson.com/products/${id}`)
+    .then(res => {
+        if(!res.ok){
+            throw new Error('Error al obtener producto');
+        }
+        return res.json();
+    })
+}

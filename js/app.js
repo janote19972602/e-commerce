@@ -1,6 +1,6 @@
 import { crearEventos } from "./eventos.js";
 import { obtenerProductos } from "./api.js";
-import { crearGrillaProductos, establecerProductosGlobal } from "./ui.js";
+import { crearGrillaProductos, establecerProductosGlobal} from "./ui.js";
 
 //cerebro del proyecto
 window.addEventListener('load', () =>{
@@ -10,6 +10,7 @@ window.addEventListener('load', () =>{
     .then(productos =>{
         establecerProductosGlobal(productos);
         crearGrillaProductos(productos);
+        renderizarDetalleProducto(productos);
     })
     .catch(e =>{
         console.log(e); 

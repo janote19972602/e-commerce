@@ -1,8 +1,8 @@
 #grillaProductos{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 16px;
-  padding: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  padding: 14px;
   background-color: #b0eac8;
   align-items: stretch;/*solucion pero no funciona si agrando el padding, si agrando en px el padding no aplica */
   margin-top: 40px;
@@ -27,6 +27,11 @@
   width: 80%;
   height: 80%;
   object-position: center; /* Centra la imagen */
+  transition: transform 0.5s ease; /* Transición suave */
+}
+
+.card img:hover {
+    transform: scale(1.1); /* Aumenta el tamaño un 10% */
 }
 
 .info-producto{
@@ -94,22 +99,7 @@
   box-sizing: border-box;       /* Evita problemas de padding */
 }
 
-.carrito-mostrar{
-  width: 90%;                   /* 4. El botón ocupa el 90% del div (casi todo) */
-  max-width: 400px;             /* 5. Evita que sea demasiado ancho en pantallas grandes */
-  padding: 15px 20px;           /* 6. "Lindo": Padding interno para mayor altura */
-  background-color: #28a745;    /* Color de fondo ejemplo */
-  color: white;                 /* Color de texto */
-  border: none;
-  border-radius: 8px;           /* Bordes redondeados */
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-/* Efecto al pasar el mouse (opcional) */
-.carrito-mostrar:hover {
-    background-color: #218838;
-}
+
 
 
 

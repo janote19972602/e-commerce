@@ -13,8 +13,6 @@ const spanContador = document.getElementById('contador');
 
 
 export function crearEventos() {
-
-    console.log(navbarCarrito);
     
     navbarCarrito.addEventListener('click', abrirCarrito);
     overlay.addEventListener('click', cerrarCarrito);  
@@ -68,7 +66,8 @@ function manejarEventosGrilla(e) {
     }
 
     if (e.target.classList.contains('carrito-ver')) {
-        window.location.href = `producto.html?id=1`;
+        
+        window.location.href = `producto.html?id=${producto.id}`;
         
         
     }
@@ -131,7 +130,15 @@ function manejarEventosMenuLateral(e) {
         renderizarCarrito(obtenerCarrito());
     }
 
-    
+
+    //EJEMPLO
+    if (e.target.classList.contains('btn-detalle')) {
+
+        //ejemplo
+    window.location.href = `producto.html?id=${producto.id}`;
+
+    }
+
 }
 
 
