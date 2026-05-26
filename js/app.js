@@ -10,7 +10,7 @@ window.addEventListener('load', () =>{
     .then(productos =>{
         establecerProductosGlobal(productos);
         crearGrillaProductos(productos);
-        renderizarDetalleProducto(productos);
+        // renderizarDetalleProducto(productos);
     })
     .catch(e =>{
         console.log(e); 
