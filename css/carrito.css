@@ -21,6 +21,7 @@
     background-color: #fff;
     width: 300px;
     min-height: 200px;
+    max-height: 500px;
     position: fixed;
     top: 1rem;
     right: 1rem;
@@ -170,6 +171,8 @@ h2{
 .carrito-mostrar.ocultar{
     display: none;
 }
+
+
 
 
 

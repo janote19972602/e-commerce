@@ -125,13 +125,26 @@ export function renderizarDetalleProducto(producto) {
 
     let html = ''; 
 
-    html+= `<div class="carrito-producto" data-idproducto="${producto.id}">
-                    <div class="contenedor-producto">  
-                        <img src="${producto.thumbnail}"> 
-                        <p class="titulo">${producto.title}</p> 
+    html+= `<div class="producto-uno" data-idproducto="${producto.id}">
+                <span class="badge">Belleza</span>
+                <div class="imagen-informacion">
+                    <img src="${producto.thumbnail}">
+                    <div class="producto-informacion">
+                        <div class="informacion-parte-uno">
+                            <h2>${producto.title}</h2>
+                            <p class="precio">${producto.price}</p>
+                            <p class="descripcion">${producto.description}</p>
+                        </div>
+                        <div class="informacion-parte-dos">
+                            <h2>${producto.title}</h2>
+                            <p class="titulo">${producto.weight}</p>
+                            <p class="titulo">${producto.meta.createdAt}</p>
+                            <p class="titulo">${producto.meta.createdAt}</p>
+                            <p class="titulo">${producto.meta.createdAt}</p>
+                        </div>
                     </div>
+                </div>
             </div>
-                <hr>
                 `    
 
     //SE INSERTA AL HTML PARA QUE ASI SE PUEDA VER LA PAGINA

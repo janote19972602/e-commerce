@@ -1,0 +1,97 @@
+/* CSS PARA EL PRIMER PRODUCTO */
+.container-producto{
+    margin-top: 30px;
+}
+
+.producto-uno{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 50px;
+    background-color: rgb(202, 194, 183);
+}
+
+.imagen-informacion {
+    display: flex;
+    align-items: center; 
+    gap: 20px; 
+    width: 100%;
+    /* background-color: #e68282; Fondo para que el contenido resalte */
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.imagen-informacion img {
+    width: 30%; /* Ajusta el tamaño de la imagen */
+    height: auto; /* Mantiene la proporción original */
+    object-fit: cover;/* redimensiona un img para que llene todo el espacio de su contenedor sin deformarse, manteniendo su proporción original*/
+}
+
+.producto-informacion {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    gap: 50px;
+    /* background-color: rgb(106, 106, 190); */
+}
+
+.informacion-parte-uno{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px;
+    font-family: 'Arial', sans-serif; /* Cambia esto por tu tipografía favorita */   
+    
+}
+
+/* titulo */
+.informacion-parte-uno h2 {
+    font-size: 26px;
+    color: #2c3e50;
+  
+}
+
+/* precio */
+.informacion-parte-uno .precio {
+    font-size: 20px;
+    font-weight: 700;
+    color: #e74c3c;
+}
+
+/* Descripcion */
+.informacion-parte-uno .descripcion {
+    font-size: 1rem;
+    color: #7f8c8d; 
+    
+}
+
+.informacion-parte-dos{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    gap: 8px; 
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+
+}
+
+
+
+
+
+
+
+/* 
+ background-color: #f3c7c7; /* Fondo suave para que resalte */
+    /* border-radius: 8px; /* Bordes redondeados */
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Sombra sutil */
+    /* max-width: 400px; Ancho máximo para que no se estire demasiado */
+ 
+
+
+
+
+
+
+
+
