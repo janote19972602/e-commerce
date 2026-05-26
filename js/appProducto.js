@@ -1,6 +1,7 @@
 import { obtenerProductoPorId } from './api.js'; 
 import { renderizarDetalleProducto } from './ui.js'; 
 import { cargarNavbar } from "./cargadorComponentes.js";
+import { crearEventos } from './eventos.js';
 
 window.addEventListener('load', inicializarProducto); 
 
@@ -8,6 +9,7 @@ async function inicializarProducto() {
 
     document.getElementById('navbar').innerHTML = await cargarNavbar();
 
+    crearEventos();
     
     // Guardamos los parámetros de la URL
     const parametros = new URLSearchParams(window.location.search); 
