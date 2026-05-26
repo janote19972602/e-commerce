@@ -1,7 +1,7 @@
 //encargado de obtener los datos esta es la base de todo
 const urlProductos = 'https://dummyjson.com/products';
 
-export function obtenerProductos() {
+export async function obtenerProductos() {
 
     return fetch(urlProductos)
     .then(respuesta => {
@@ -15,6 +15,12 @@ export function obtenerProductos() {
     .then(datos =>{
         return datos.products;
     })
+
+    // const resul = await fetch(urlProductos);
+    // if (!resul.ok) throw new Error("error...");
+    // const data = await resul.json();
+    // return data.products;
+
     
 }
 //ESA ES LLAMADA Y UTILIZADA EN LA CONEXION DONDE SE CONSUMEN JSON, TEXTO CON UN

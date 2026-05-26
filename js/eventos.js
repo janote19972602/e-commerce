@@ -3,16 +3,19 @@ import { obtenerProductosGlobal,renderizarCarrito} from "./ui.js";
 import { agregarProductoAlCarrito, obtenerCarrito, obtenerTotalCarrito, eliminarProductoCarrito} from "./carrito.js";
 
 let arregloCarrito = [];
-
-//se definen 2 const una para el menu lateral donde saldra info de la compra y el otro el fondo
-const menuLateral = document.getElementById('menuLateral');
-const overlay = document.getElementById('overlay');
-const navbarCarrito = document.getElementById('navbarCarrito');
-const grillaProductos = document.getElementById('grillaProductos');
-const spanContador = document.getElementById('contador');
-
+let menuLateral = '';
+let overlay = '';
 
 export function crearEventos() {
+
+    //se definen 2 const una para el menu lateral donde saldra info de la compra y el otro el fondo
+    menuLateral = document.getElementById('menuLateral');
+    overlay = document.getElementById('overlay');
+    const navbarCarrito = document.getElementById('navbarCarrito');
+    console.log(navbarCarrito);
+    
+    const grillaProductos = document.getElementById('grillaProductos');
+    const spanContador = document.getElementById('contador');
     
     navbarCarrito.addEventListener('click', abrirCarrito);
     overlay.addEventListener('click', cerrarCarrito);  
@@ -24,6 +27,8 @@ function abrirCarrito() {
 
     //buscar el carrito lateral y agregar la clase activo se asoma la info del producto comprado y al mismo tiempo
     //abre el overlay que es el fondo como si estuviese bloqueado
+    console.log(menuLateral);
+    
     menuLateral.classList.add('activo');
     overlay.classList.add('activo');
 }
