@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/carrito.css">
     <link rel="stylesheet" href="css/grillaProductos.css">
+    <link rel="stylesheet" href="css/toolbar.css">
     <script type="module" src="js/app.js"></script>
-    <script type="module" src="js/eventos.js"></script>    
+    <script type="module" src="js/eventosGlobal.js"></script>    
 </head>
 <body>
 
@@ -20,22 +21,34 @@
 
     <main>
         <div class="container">
-            <!-- aqui va a ir la grilla dinamica de productos -->
+            
+            <div class="toolbar">
+                <!-- Total de productos comprados -->
+                <div class="toolbar-total-productos">
+                    <span>30 productos comprados</span>
+                </div>
+
+                <!-- Buscador y Ordenador a la derecha -->
+                <div class="toolbar-derecha">
+                    <div class="toolbar-buscador">
+                        <input id="buscador" type="text" placeholder="Buscar...">
+                    </div>
+                    <div class="toolbar-ordenador">
+                        <select name="" id="">
+                            <option value="">Ordenar</option>
+                            <option value="">Precio de mayor a menor</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+
+
             <div id="grillaProductos" class="grilla-productos"></div>
         </div>
     </main>
 
-    <div class="overlay " id="overlay"></div>
-    <aside class="carrito-menu-lateral" id="menuLateral">
-        <div class="carrito-contenidoProductos">
-            <p id="cantidadProductos">0</p>
-            <p>Productos en el carrito</p>
-        </div>
-        <div class="carrito-lista" id="listaCarrito"></div>
-        <div class="carrito-acciones">
-            <button id="btnVerCarrito" class="carrito-mostrar">Ver carrito</button>
-        </div>
-    </aside>
+        <div id="contenedorMenuLateral"></div>
 
     <footer>
     </footer>

@@ -127,67 +127,17 @@ export function renderizarDetalleProducto(producto) {
 
     let html = ''; 
 
-    html+= `<div class="producto" data-idproducto="${producto.id}">
-                <div class="producto-imagen-titulo-informacion">
-                    <div class="producto-imagen-titulo">
-                        <h2 class="producto-titulo">${producto.title}</h2>
-                        <div class="galeria-producto">
-                            <img src="${producto.thumbnail}">
-                        </div>
-                    </div>
-                    <ul class="producto-informacion">
-                        <li><strong>Descripcion:</strong> ${producto.description}</li>
-                        <li><strong>Stock:</strong> ${producto.stock}</li>
-                        <li><strong>SKU:</strong> ${producto.sku}</li>
-                        <li><strong>Dimensiones:</strong> ${producto.dimensions.width} x ${producto.dimensions.height} x ${producto.dimensions.depth}</li>
-                        <li><strong>Garantía:</strong> ${producto.warrantyInformation}</li>
-                        <li><strong>Envío:</strong> ${producto.shippingInformation}</li>
-                        <li><strong>Política de devolución:</strong> ${producto.returnPolicy}</li>
-                        <li><strong>Estado:</strong> ${producto.availabilityStatus}</li>
-                        <li>${'⭐'.repeat(Math.round(producto.rating))}</li>
-                    </ul>
+    html+= `
+    <div class="contenedor-producto" data-idproducto="${producto.id}">
+                <div class="galeria-producto">
+                    <img src="${producto.thumbnail}">
                 </div>
-                <div class="producto-comentarios">
-                    <h3 class="opiniones">Opiniones de clientes</h3>
-                    <section class="comentario-de-producto">
-                            <div class="reseña">
-                                <span>${producto.reviews[0].reviewerName}</span>
-                                <div>${'⭐'.repeat(Math.round(producto.rating))}</div>
-                                <p>${producto.reviews[0].comment}</p>
-                                <span>${producto.reviews[0].date.slice(0,10)}</span>
-                            </div>
-                            <div class="reseña">
-                                <span>${producto.reviews[1].reviewerName}</span>
-                                <div>${'⭐'.repeat(Math.round(producto.rating))}</div>
-                                <p>${producto.reviews[1].comment}</p>
-                                <span>${producto.reviews[1].date.slice(0,10)}</span>
-                            </div>
-                            <div class="reseña">
-                                <span>${producto.reviews[2].reviewerName}</span>
-                                <div>${'⭐'.repeat(Math.round(producto.rating))}</div>
-                                <p>${producto.reviews[2].comment}</p>
-                                <span>${producto.reviews[2].date.slice(0,10)}</span>
-                            </div>
-                    </section>
+                <div class="detalles-producto">
+                <div class="category">${producto.tags.mascara}</div>
                 </div>
-                <!-- area de Metadatos (Barcode, Fechas y QR) -->
-                    <div class="producto-contenedor-meta">
-                        <div class="producto-meta">
-                            <div class="meta-datos">
-                                <span>Fecha de creación:</span>
-                                <span">${producto.meta.createdAt.split('T')[0]}</span>
-                            </div>
-                            <div class="meta-datos">
-                                <span>Código de barras:</span>
-                                <strong>${producto.meta.barcode}</strong>
-                            </div>
-                            <div class="meta-datos">
-                                <span class" meta-item-qr">Código QR:</span>
-                                <img src="${producto.meta.qrCode}" class="meta-qr">
-                            </div>
-                        </div>
-                    </div>
-            </div>
+    </div>
+
+
                 `    
 
     //SE INSERTA AL HTML PARA QUE ASI SE PUEDA VER LA PAGINA

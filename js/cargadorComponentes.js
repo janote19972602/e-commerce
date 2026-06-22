@@ -8,3 +8,15 @@ export async function cargarNavbar() {
     return html;
     
 }
+
+export async function cargarMenuLateral(){
+
+    const menu = await fetch('./componentes/carritoLateral.html');
+
+    if (!menu.ok)  throw new Error("Ocurrió un error en el navbar");
+
+    const html = await menu.text();
+    return html;
+
+}
+

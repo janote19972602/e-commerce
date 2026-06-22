@@ -13,6 +13,8 @@
     z-index: 10;
 }
 
+
+
 /* INICIO DEL LOGO DE E-COMMERCE */
 .navbar-logo{
     display: flex;
@@ -36,24 +38,7 @@
 }
 /* FIN A LOGO E-COMMERCE */
 
-/* INICIO A INPUT BUSCADOR */
-.navbar-buscador{
-    flex-grow: 1;
-    max-width: 500px;
-    
-}
 
-.navbar-buscador input{
-    width: 100%;
-    padding: 12px 20px;
-    background-color: #f3f4f6; /* Fondo gris muy claro y elegante */
-    border: 1px solid #e5e7eb;
-    border-radius: 25px; /* Bordes redondeados */
-    font-size: 14px;
-    color: #374151;
-    transition: all 0.3s ease;
-    outline: none;/*regla que elimina el contorno o borde visual*/
-}
 
 /* CARRITO DE SUPERMERCADO */
 .navbar-carrito{

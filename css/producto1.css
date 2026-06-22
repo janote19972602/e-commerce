@@ -1,97 +1,222 @@
-/* CSS PARA EL PRIMER PRODUCTO */
-.container-producto{
-    margin-top: 30px;
+*
+{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
-.producto-uno{
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    gap: 50px;
-    background-color: rgb(202, 194, 183);
+/* LISTO */
+.contenedor-producto{
+  display: flex;
+  flex-direction: row;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
 }
 
-.imagen-informacion {
-    display: flex;
-    align-items: center; 
-    gap: 20px; 
-    width: 100%;
-    /* background-color: #e68282; Fondo para que el contenido resalte */
-    padding: 15px;
-    box-sizing: border-box;
+/* LISTO */
+.galeria-producto{
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
 }
 
-.imagen-informacion img {
-    width: 30%; /* Ajusta el tamaño de la imagen */
-    height: auto; /* Mantiene la proporción original */
-    object-fit: cover;/* redimensiona un img para que llene todo el espacio de su contenedor sin deformarse, manteniendo su proporción original*/
+/* LISTO */
+.imagen-principal-producto{
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
 }
 
-.producto-informacion {
-    display: flex;
-    flex-direction: column;
-    width: 60%;
-    gap: 50px;
-    /* background-color: rgb(106, 106, 190); */
+/*segundo div*/
+.detalles-producto{
+  flex: 1.2;/**/
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
 }
 
-.informacion-parte-uno{
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    padding: 20px;
-    font-family: 'Arial', sans-serif; /* Cambia esto por tu tipografía favorita */   
-    
+.producto-titulo{
+  font-size: 1.8rem;
+  margin-bottom: 8px;
 }
 
-/* titulo */
-.informacion-parte-uno h2 {
-    font-size: 26px;
-    color: #2c3e50;
+.categoria-producto{
+  text-transform: uppercase;
+  font-size: 0.85rem;/*13px*/
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+/* LISTO */
+.marca-producto{
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.calificacion-producto{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.precio-producto{
+  margin-bottom: 20px;
+}
+
+.precio{
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.descuento{
+  color: red;
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+.descripcion{
+  margin-bottom: 20px;
+}
+
+.caja-de-compra-producto{
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.selector-cantidad-producto{
+  padding: 10px;
+  border-radius: 6px;
+  width: 80px;
+}
+
+.boton-agregar-producto{
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: red;
+}
+
+.estado-producto{
+  color: #059669;
+  font-weight: 600;
+}
+
+/*Lista de detalles del producto*/
+.lista{  
+  margin-bottom: 25px; 
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.info-lista {
+  list-style: none;
+  display: flex;
+  flex-direction: column; 
+  gap: 12px;
+}
+
+.info-lista li {
+  font-size: 15px;
+  color: #333;
+  border-bottom: 1px solid #e0e0e0; /* linea separadora  */
+  padding-bottom: 8px;
+}
+
+.info-lista li strong {
+  color: #2c3e50; 
+  display: inline-block;/*permite que esten alineados la info en la lista*/
+  width: 110px; 
+}
+
+/*************** SECCION DE COMENTARIOS/reseñas ***********/
+/* Contenedor principal de reseñas */
+.seccion-de-reseñas {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem; 
+}
+
+/* Tarjetas individuales */
+.reseña-tarjeta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem; 
+  border-radius: 8px; /* Bordes redondeados  */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra  */
+  width: 100%;
+}
+
+.reseña-tarjeta:hover {
+  transform: translateY(-3px);/*crea un efecto como si se levantara*/
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);/*horizontal vertical */
+}
+
+.reseña-encabezamiento {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  gap: 0.5rem;
+  margin-bottom: 1rem; 
+}
+
+.reseña-tarjeta .autor {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.reseña-comentario {
+  text-align: center; 
   
 }
 
-/* precio */
-.informacion-parte-uno .precio {
-    font-size: 20px;
-    font-weight: 700;
-    color: #e74c3c;
+/*CODIGO QR Y NUMERO */
+.tarjetaQr-producto {
+  display: flex;
+  flex-direction: column; 
+  gap: 12px;             
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+  margin-top: 30px;
 }
 
-/* Descripcion */
-.informacion-parte-uno .descripcion {
-    font-size: 1rem;
-    color: #7f8c8d; 
+.codigo {
+  display: flex;
+  gap: 6px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
     
 }
 
-.informacion-parte-dos{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; 
-    gap: 8px; 
-    padding: 20px;
-    font-family: 'Arial', sans-serif;
-
+.codigo span {
+  color: #555;
 }
 
+.codigo strong {
+  color: #000;
+}
 
+.tarjeta-qr {  
+  width: 150px; 
+  height: 150px;
+}
 
-
-
-
-
-/* 
- background-color: #f3c7c7; /* Fondo suave para que resalte */
-    /* border-radius: 8px; /* Bordes redondeados */
-    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Sombra sutil */
-    /* max-width: 400px; Ancho máximo para que no se estire demasiado */
- 
-
-
-
-
-
-
-
-
+.tarjeta-qr img {
+  width: 100%;
+  height: 100%;
+}

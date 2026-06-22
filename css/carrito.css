@@ -87,8 +87,9 @@ h2{
     flex: 1;/*ocupa todo el espacio disponible*/
 }
 
-.primera-parte .totalProducto{
-    color: red;
+.totalProducto{
+    color: #0f766e; 
+    font-weight: bold;
 }
 
 .primera-parte{

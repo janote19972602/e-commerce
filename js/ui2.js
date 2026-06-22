@@ -127,67 +127,81 @@ export function renderizarDetalleProducto(producto) {
 
     let html = ''; 
 
-    html+= `<div class="producto" data-idproducto="${producto.id}">
-                <div class="producto-imagen-titulo-informacion">
-                    <div class="producto-imagen-titulo">
-                        <h2 class="producto-titulo">${producto.title}</h2>
-                        <div class="galeria-producto">
-                            <img src="${producto.thumbnail}">
-                        </div>
+    html+= `
+    <div class="contenedor-producto" data-idproducto="${producto.id}">
+                <div class="galeria-producto">
+                    <img src="${producto.thumbnail}" class="imagen-principal-producto">
+                </div>
+                
+                <div class="detalles-producto">
+                    <span class="categoria-producto">${producto.tags[1]}</span>
+                        <h1 class="producto-titulo">${producto.title}</h1>
+                    <span class="marca-producto">${producto.brand}</span>
+
+                    <div class="calificacion-producto">
+                        <span>${'⭐'.repeat(Math.round(producto.rating))}</span> 
+                        <span>${producto.discountPercentage}</span>
                     </div>
-                    <ul class="producto-informacion">
-                        <li><strong>Descripcion:</strong> ${producto.description}</li>
-                        <li><strong>Stock:</strong> ${producto.stock}</li>
-                        <li><strong>SKU:</strong> ${producto.sku}</li>
-                        <li><strong>Dimensiones:</strong> ${producto.dimensions.width} x ${producto.dimensions.height} x ${producto.dimensions.depth}</li>
-                        <li><strong>Garantía:</strong> ${producto.warrantyInformation}</li>
-                        <li><strong>Envío:</strong> ${producto.shippingInformation}</li>
-                        <li><strong>Política de devolución:</strong> ${producto.returnPolicy}</li>
-                        <li><strong>Estado:</strong> ${producto.availabilityStatus}</li>
-                        <li>${'⭐'.repeat(Math.round(producto.rating))}</li>
-                    </ul>
-                </div>
-                <div class="producto-comentarios">
-                    <h3 class="opiniones">Opiniones de clientes</h3>
-                    <section class="comentario-de-producto">
-                            <div class="reseña">
-                                <span>${producto.reviews[0].reviewerName}</span>
-                                <div>${'⭐'.repeat(Math.round(producto.rating))}</div>
-                                <p>${producto.reviews[0].comment}</p>
-                                <span>${producto.reviews[0].date.slice(0,10)}</span>
-                            </div>
-                            <div class="reseña">
-                                <span>${producto.reviews[1].reviewerName}</span>
-                                <div>${'⭐'.repeat(Math.round(producto.rating))}</div>
-                                <p>${producto.reviews[1].comment}</p>
-                                <span>${producto.reviews[1].date.slice(0,10)}</span>
-                            </div>
-                            <div class="reseña">
-                                <span>${producto.reviews[2].reviewerName}</span>
-                                <div>${'⭐'.repeat(Math.round(producto.rating))}</div>
-                                <p>${producto.reviews[2].comment}</p>
-                                <span>${producto.reviews[2].date.slice(0,10)}</span>
-                            </div>
-                    </section>
-                </div>
-                <!-- area de Metadatos (Barcode, Fechas y QR) -->
-                    <div class="producto-contenedor-meta">
-                        <div class="producto-meta">
-                            <div class="meta-datos">
-                                <span>Fecha de creación:</span>
-                                <span">${producto.meta.createdAt.split('T')[0]}</span>
-                            </div>
-                            <div class="meta-datos">
-                                <span>Código de barras:</span>
-                                <strong>${producto.meta.barcode}</strong>
-                            </div>
-                            <div class="meta-datos">
-                                <span class" meta-item-qr">Código QR:</span>
-                                <img src="${producto.meta.qrCode}" class="meta-qr">
+
+                    <div class="precio-producto">
+                        <span class="precio">${producto.price}</span>
+                        <span class="descuento">-10.48% OFF</span>
+                    </div>
+
+                    <span class="descripcion">${producto.description}</span>
+
+                    <div class="caja-de-compra-producto">
+                        <label>${producto.minimumOrderQuantity}</label>
+                        <input type="number" class="selector-cantidad-producto">
+                        <button class="boton-agregar-producto">Añadir a la compra</button>
+                        <span class="estado-producto">In stock ${producto.stock}</span>
+                    </div>  
+                    <div class="lista">
+                        <ul class="info-lista">
+                            <li><strong>Sku:</strong> ${producto.sku}</li>
+                            <li><strong>Shipping:</strong>${producto.shippingInformation}</li>
+                            <li><strong>Warranty:</strong>${producto.warrantyInformation}</li>
+                            <li><strong>Return Policy:</strong> ${producto.returnPolicy}</li>
+                            <li><strong>Tags:</strong>${producto.tags}</li>
+                            <li><strong>Ancho:</strong> ${producto.dimensions.width} cm</li>
+                            <li><strong>Alto:</strong> ${producto.dimensions.height} cm</li>
+                            <li><strong>Profundidad:</strong> ${producto.dimensions.depth} cm</li>
+                        </ul>
+                    </div>
+                    <div class="seccion-de-reseñas">
+                        <div class="reseña-tarjeta">
+                            <div class="reseña-encabezamiento">
+                                <span class="autor">${producto.reviews[0].reviewerName}</span>
+                                <span class="estrellas">${'⭐'.repeat(Math.round(producto.reviews[0].rating))}</span>
+                                <span class="reseña-comentario">${producto.reviews[0].comment}</span>
+                            </div> 
+                        </div>
+                        <div class="reseña-tarjeta">
+                            <div class="reseña-encabezamiento">
+                                <span class="autor">${producto.reviews[1].reviewerName}</span>
+                                <span class="estrellas">${'⭐'.repeat(Math.round(producto.reviews[1].rating))}</span>
+                                <span class="reseña-comentario">${producto.reviews[1].comment}</span>
                             </div>
                         </div>
+                        <div class="reseña-tarjeta">
+                            <div class="reseña-encabezamiento">
+                                <span class="autor">${producto.reviews[2].reviewerName}</span>
+                                <span class="estrellas">${'⭐'.repeat(Math.round(producto.reviews[2].rating))}</span>
+                                <span class="reseña-comentario">${producto.reviews[2].comment}</span>
+                            </div>
+                        </div>
+                     </div>
+                     <div class="tarjetaQr-producto">
+                        <div class="tarjeta-qr">
+                            <img src="${producto.meta.qrCode}">
+                        </div>
+                        <div class="codigo"> 
+                        <span>Codido Qr:</span>
+                            <strong>${producto.meta.barcode}</strong> 
+                        </div>
                     </div>
-            </div>
+                <div>
+    </div>
                 `    
 
     //SE INSERTA AL HTML PARA QUE ASI SE PUEDA VER LA PAGINA

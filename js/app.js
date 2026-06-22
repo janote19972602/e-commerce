@@ -1,26 +1,26 @@
-import { crearEventos } from "./eventos.js";
+import { crearEventosGlobal } from "./eventosGlobal.js";
+import { crearEventosIndex } from "./eventosIndex.js";
 import { obtenerProductos } from "./api.js";
-import { crearGrillaProductos, establecerProductosGlobal} from "./ui.js";
-import { cargarNavbar } from "./cargadorComponentes.js";
+import { crearGrillaProductos, establecerProductosGlobal} from "./ui2.js";
+import { cargarNavbar, cargarMenuLateral } from "./cargadorComponentes.js";
 
 //cerebro del proyecto
 window.addEventListener('load', inicializar);
 
 async function inicializar() {
 
-    const html = await cargarNavbar();
     const nabvar = document.getElementById('navbar');
-    nabvar.innerHTML = html;
+    const menuLateral = document.getElementById('contenedorMenuLateral');
 
-    //in line
-    // document.getElementById('navbar').innerHTML = await cargarNavbar();
+    nabvar.innerHTML = await cargarNavbar();
+    menuLateral.innerHTML = await cargarMenuLateral();
 
-    crearEventos();
+    crearEventosGlobal();
+    crearEventosIndex();
     obtenerProductos()
     .then(productos =>{
         establecerProductosGlobal(productos);
         crearGrillaProductos(productos);
-
     })
     .catch(e =>{
         console.log(e); 

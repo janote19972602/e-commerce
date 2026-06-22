@@ -1,4 +1,4 @@
-import { renderizarCarrito } from "./ui.js";
+import { renderizarCarrito } from "./ui2.js";
 
 let arregloCarrito = [];
 

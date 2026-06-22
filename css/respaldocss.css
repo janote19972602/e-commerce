@@ -1,0 +1,150 @@
+/* CSS PARA EL PRIMER PRODUCTO */
+.producto{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.producto-imagen-titulo-informacion {
+    display: flex;
+    flex-direction: row;
+    gap: 6rem; /* Espacio de separación entre ambas columnas */
+    margin: 0 auto;
+    margin-top: 50px;
+    transition: transform 0.3s ease;
+}
+
+.producto-imagen-titulo {
+    display: flex;
+    flex-direction: column;
+    /* background-color: orange; */
+}
+
+.producto-imagen-titulo-informacion:hover{
+    transform: translateY(-3px);
+}
+
+
+.producto-imagen-titulo-informacion img{
+    width: 320px; /* Ajusta este tamaño necesites */
+    height: 320px;  
+    object-position: center;
+    transition: transform 0.5 ease;
+}
+
+.producto-imagen-titulo-informacion img:hover {
+  transform: scale(1.1); /* Hace que la imagen crezca un 10% */
+}
+
+.producto-informacion {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    justify-content: center;
+    gap: 10px; /* Espaciado vertical entre cada elemento de la lista */
+    /* padding: 20px; */
+    border-radius: 8px;
+    list-style: none; 
+    /* background-color: green; */
+    
+}
+
+/* *************SEGUNDO DIV DE COMENTARIOS*************** */
+
+.producto-comentarios{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background-color: #f9f9f9;
+}
+
+.opiniones{
+  color: blue;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.comentario-de-producto {
+  display: flex;
+  justify-content: center; /* Centra el h3 y distribuye las tarjetas */
+  align-items: center; /* Alinea verticalmente al centro */
+  gap: 60px; /* Espacio entre las tarjetas */
+}
+
+.reseña {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 200px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  
+}
+
+.reseña p {
+  flex-grow: 1; /* Hace que el texto ocupe el espacio central sobrante */
+  color: #555;
+  line-height: 1.5;
+}
+
+
+/* ******************+INFORMACION Barcode, Fechas y QR*************** */
+
+/* Centrar el contenedor principal en la pantalla */
+.producto-contenedor-meta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  background-color: #f7f9fc;
+}
+
+/* Estilos de tarjeta producto y padre de un solo div */
+.producto-meta {
+  display: flex;
+  flex-direction: column;
+  /* background: #c56868; */
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;/*que ocupe el 100% de la tarjeta*/
+  max-width: 400px;/*el ancho de mi tarjeta*/
+  gap: 16px;
+  
+}
+
+/* hijos del div "producto-meta" con la misma clase para las 3 divs */
+.meta-datos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: #333333;
+}
+
+/* tamaño de la img del Código QR */
+.meta-qr {
+  width: 120px;
+  height: 120px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 4px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

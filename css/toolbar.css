@@ -1,0 +1,50 @@
+
+/* div toolbar */
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f3f3f3;
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  margin-top: 40px;
+}
+
+/* Lado izquierdo  */
+.toolbar-total-productos span {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Lado derecho ,buscador y el select */
+.toolbar-derecha {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Espacio entre el buscador y el select */
+}
+
+/* Estilo del buscador */
+.toolbar-buscador input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  /* outline: none; */
+  /* font-size: 14px; */
+}
+
+.toolbar-buscador input:focus {
+  border-color: #007bff;
+}
+
+/* Estilo del menú desplegable */
+.toolbar-ordenador select {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+  font-size: 14px;
+  
+}
