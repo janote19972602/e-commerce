@@ -6,7 +6,7 @@
   font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* LISTO */
+/* LISTO PADRE DE 2 DIVS LA IMAGEN Y LA INFORMACION*/
 .contenedor-producto{
   display: flex;
   flex-direction: row;
@@ -16,13 +16,14 @@
   margin-top: 50px;
 }
 
-/* LISTO */
+/* LISTO PRIMER HIJO PRIMER DIV */
 .galeria-producto{
   padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 15px;
   align-items: center;
+  
 }
 
 /* LISTO */
@@ -30,9 +31,16 @@
   width: 100%;
   max-width: 400px;
   border-radius: 8px;
+  transition: transform 0.3s ease;
+  /* box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.8); */
+
 }
 
-/*segundo div*/
+.imagen-principal-producto:hover{
+  transform: translateY(-4px); /* Eleva la imagen píxeles hacia arriba */
+}
+
+/*LISTO SEGUNDO HIJO SEGUNDO DIV*/
 .detalles-producto{
   flex: 1.2;/**/
   padding: 30px;
@@ -40,15 +48,15 @@
   flex-direction: column;
 }
 
-.producto-titulo{
-  font-size: 1.8rem;
+.categoria-producto{
+  /* text-transform: uppercase; */
+  font-size: 0.85rem;/*13px*/
+  letter-spacing: 1px;
   margin-bottom: 8px;
 }
 
-.categoria-producto{
-  text-transform: uppercase;
-  font-size: 0.85rem;/*13px*/
-  letter-spacing: 1px;
+.producto-titulo{
+  font-size: 1.8rem;
   margin-bottom: 8px;
 }
 
@@ -68,6 +76,7 @@
 
 .precio-producto{
   margin-bottom: 20px;
+  align-items: center;
 }
 
 .precio{
@@ -186,37 +195,33 @@
 /*CODIGO QR Y NUMERO */
 .tarjetaQr-producto {
   display: flex;
-  flex-direction: column; 
-  gap: 12px;             
-  padding: 15px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
-  margin-top: 30px;
+  flex-direction: column;
+  margin-top: 20px;
 }
 
-.codigo {
+.tarjeta-qr {
   display: flex;
-  gap: 6px;
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-    
+  flex-direction: column; /* Alinea los elementos verticalmente */
+  gap: 12px;              /* Espacio entre el código, la imagen y la fecha */
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Efecto de elevación suave */
 }
 
-.codigo span {
-  color: #555;
-}
-
-.codigo strong {
-  color: #000;
-}
-
-.tarjeta-qr {  
-  width: 150px; 
-  height: 150px;
+.tarjeta-qr .codigo {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333333;
 }
 
 .tarjeta-qr img {
-  width: 100%;
-  height: 100%;
+  width: 150px;     
+  height: 150px;
+  object-fit: contain;/*trabaja con la imagen*/
+}
+
+.tarjeta-qr .fecha {
+  font-size: 0.85rem;
+  color: #777777;
 }

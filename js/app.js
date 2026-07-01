@@ -1,7 +1,7 @@
 import { crearEventosGlobal } from "./eventosGlobal.js";
 import { crearEventosIndex } from "./eventosIndex.js";
 import { obtenerProductos } from "./api.js";
-import { crearGrillaProductos, establecerProductosGlobal} from "./ui2.js";
+import { crearGrillaProductos, establecerProductosGlobal} from "./ui.js";
 import { cargarNavbar, cargarMenuLateral } from "./cargadorComponentes.js";
 
 //cerebro del proyecto

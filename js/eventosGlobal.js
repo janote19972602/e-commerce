@@ -1,5 +1,5 @@
 //este modulo se encargara de agregar los eventos a los elementos correspondientes
-import { renderizarCarrito } from "./ui2.js";
+import { renderizarCarrito } from "./ui.js";
 import { agregarProductoAlCarrito, obtenerCarrito, obtenerTotalCarrito, eliminarProductoCarrito} from "./carrito.js";
 
 let arregloCarrito = [];
@@ -12,11 +12,15 @@ export function crearEventosGlobal() {
     //se definen 2 const una para el menu lateral donde saldra info de la compra y el otro el fondo
     menuLateral = document.getElementById('menuLateral');
     overlay = document.getElementById('overlay');
+
     const navbarCarrito = document.getElementById('navbarCarrito');
     spanContador = document.getElementById('contador');
+
     navbarCarrito.addEventListener('click', abrirCarrito);
-    overlay.addEventListener('click', cerrarCarrito);  
+    overlay.addEventListener('click', cerrarCarrito); 
+
     menuLateral.addEventListener('click', manejarEventosMenuLateral);
+
 }
 
 function abrirCarrito() {
@@ -56,17 +60,16 @@ function manejarEventosMenuLateral(e) {
     //esta busca el producto por id en el "arregloCarritoProducto"
     const productoDelCarrito = arregloCarritoProducto.find(p =>p.idProducto === idProducto);
 
+    //estos son de la info del carrito, el aside el menu lateral
     const botonMas = e.target.classList.contains('btn-mas');
     const botonMenos = e.target.classList.contains('btn-menos');
     const btnEliminar = e.target.closest('.basurero-icono');
     
     //agregar producto
     if (botonMas) {
-    
         //1 hay que buscar idProducto
         //2 buscar el producto en el arreglo carrito 
         //3 sumar uno a la cantidad del objeto producto
-
         //se suma a la cantidad del objeto producto
         productoDelCarrito.cantidad++;
         renderizarCarrito(arregloCarritoProducto);
@@ -89,7 +92,6 @@ function manejarEventosMenuLateral(e) {
         renderizarCarrito(obtenerCarrito());
     }
 
-
     //EJEMPLO
     if (e.target.classList.contains('btn-detalle')) {
 
@@ -97,7 +99,6 @@ function manejarEventosMenuLateral(e) {
     window.location.href = `producto.html?id=${producto.id}`;
 
     }
-
 }
 
 

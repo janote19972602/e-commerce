@@ -4,13 +4,14 @@
   gap: 14px;
   padding: 14px;
   background-color: #b0eac8;
-  align-items: stretch;/*solucion pero no funciona si agrando el padding, si agrando en px el padding no aplica */
+  justify-content: center;/*centra cada producto dentro de cada tarjeta(card)*/
+  justify-items: center;/*centra toda la grilla completa */
   margin-top: 40px;
 }
 
 .card {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
   align-items: center;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -18,6 +19,8 @@
   transition: transform 0.3s ease;
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.8);
   text-align: center;
+  max-width: 280px;
+
 }
 
 .card:hover{
@@ -25,16 +28,17 @@
 }
 
 .card img {
-  width: 80%;
-  height: 80%;
+  width: 90%;
+  height: 90%;
   object-position: center; /* Centra la imagen */
   transition: transform 0.5s ease; /* Transición suave */
 }
 
 .card img:hover {
-    transform: scale(1.1); /* Aumenta el tamaño un 10% */
+  transform: scale(1.1); /* Aumenta el tamaño un 10% */
 }
 
+/*div padre de titulo categoria precio y rating*/
 .info-producto{
   display: flex;               
   flex-direction: column;      
@@ -45,7 +49,6 @@
 .card-titulo{
   font-weight: bolder;
   height: 48px;
-  
 }
 
 .card-categoria{
@@ -59,52 +62,37 @@
 .card-rating{
   color: #f1c40f;
 }
-
-/* div de botones */
-.botones {
-  display: flex; 
-  gap: 10px; /* Espacio entre botones */
-  padding: 15px;
+/*ESTILOS CSS PARA EL BOTON AGREGAR AL CARRITO*/
+.boton-agregar {
+    display: flex;
+    justify-content: center; /* Centra el botón en el contenedor */
+    align-items: center;
+    padding: 15px;
 }
 
-/* estilos para los botones */
-.botones button {
-  flex: 1;
-  color: white; /* Texto blanco */
-  padding: 12px 24px; /* Tamaño del mouse raton */
+.carrito-agregar {
+  background-color: #007BFF; /* Un azul profesional y llamativo */
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 12px 24px;
   border: none;
-  font-size: 12px;
+  border-radius: 8px; /* bordes redondeados */
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Suavizar cambio */
+  transition: all 0.3s ease; /*Suaviza los efectos de animación*/
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra  */
 }
 
-/* Selecciona el primer boton */
-.botones button:first-child {
-  background-color: rgb(209, 118, 53); /* Rojo claro */
-  color: white;                
+/* Efecto cuando el usuario pasa el mouse por encima */
+.carrito-agregar:hover {
+  background-color: #28a745; /* Un tono de azul más oscuro */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra + intensa */
+  transform: translateY(-2px); /* se ve un efecto de que se suben se elevan */
+  
 }
 
-
-/* Selecciona el segundo botón */
-.botones button:last-child {
-  background-color: rgb(91, 111, 211);      
-  color: white;          
+/* Efecto cuando el usuario hace clic */
+.carrito-agregar:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
-/* boton del aside ver carrito del html */
-.carrito-acciones{
-  display: flex;                /* 1. Activa Flexbox */
-  justify-content: center;      /* 2. Centra horizontalmente */
-  width: 100%;                  /* 3. El div ocupa todo el ancho */
-  padding: 10px;                /* Espaciado opcional */
-  box-sizing: border-box;       /* Evita problemas de padding */
-}
-
-
-
-
-
-
-
-
-

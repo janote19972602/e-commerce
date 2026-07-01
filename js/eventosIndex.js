@@ -1,5 +1,5 @@
 //este modulo se encargara de agregar los eventos a los elementos correspondientes
-import { obtenerProductosGlobal,renderizarCarrito} from "./ui2.js";
+import { crearGrillaProductos, obtenerProductosGlobal,renderizarCarrito} from "./ui.js";
 import { agregarProductoAlCarrito, obtenerCarrito, obtenerTotalCarrito, eliminarProductoCarrito} from "./carrito.js";
 
 let arregloCarrito = [];
@@ -12,6 +12,24 @@ export function crearEventosIndex() {
     const grillaProductos = document.getElementById('grillaProductos');
     grillaProductos.addEventListener('click', manejarEventosGrilla);
     spanContador = document.getElementById('contador');
+    const buscadorProductos = document.getElementById('buscador');
+    buscadorProductos.addEventListener('input', manejarEventosInputBuscador);
+    
+}
+
+//input que permite buscar los productos por el nombre
+function manejarEventosInputBuscador(e) {
+
+    //se guarda en una const todos los productos
+    const productosGlobal = obtenerProductosGlobal();
+
+    //se guarda en una const Esta línea de código captura el texto que el usuario acaba de escribir en un campo 
+    const textoBuscado = e.target.value.toUpperCase();
+
+    //se busca por el metodo filter, se diferencia 
+    const productosFiltrados = productosGlobal.filter(producto => producto.title.toUpperCase().includes(textoBuscado));
+    crearGrillaProductos(productosFiltrados);
+    
     
 }
 
@@ -37,20 +55,19 @@ function manejarEventosGrilla(e) {
     if (e.target.classList.contains('carrito-agregar')) {
 
         //se agrega el producto al carro
-        agregarProductoAlCarrito(producto);
+        const carrito = localStorage.getItem('carrito');
+        console.log(carrito);
+        
+        agregarProductoAlCarrito(producto, carrito);
         //se guarda la funcion que obtiene el carrito con sus compras y despues la hace de nuevo
-        const carrito = obtenerCarrito();
         renderizarCarrito(carrito);
         console.log(spanContador);
         
         spanContador.textContent = obtenerTotalCarrito();    
     }
 
-    if (e.target.classList.contains('carrito-ver')) {
-        
+    if (e.target.classList.contains('llamar')) {
         window.location.href = `producto.html?id=${producto.id}`;
-        
-        
     }
 
     

@@ -1,12 +1,15 @@
-import { renderizarCarrito } from "./ui2.js";
+import { renderizarCarrito } from "./ui.js";
 
 let arregloCarrito = [];
 
 //esta funcion sirve para agregar mas de un producto al carro pregunta y responde
-export function  agregarProductoAlCarrito(producto) {
+export function agregarProductoAlCarrito(producto, carrito) {
     
+    if (!carrito) {
+        return;
+    }
     //se busca el producto en el carrito por id
-    const productoCarrito = arregloCarrito.find(p => p.idProducto === producto.id);
+    const productoCarrito = carrito.find(p => p.idProducto === producto.id);
 
     //si esta se aumenta la cantidad
     if (productoCarrito) {
@@ -18,7 +21,9 @@ export function  agregarProductoAlCarrito(producto) {
         titulo: producto.title,
         cantidad: 1,
     }
-        arregloCarrito.push(nuevoCarrito);
+        carrito.push(nuevoCarrito);
+        localStorage.setItem('carrito', carrito);
+
         
     }
 }

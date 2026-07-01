@@ -1,5 +1,5 @@
 //encargado de obtener los datos esta es la base de todo
-const urlProductos = 'https://dummyjson.com/products';
+const urlProductos = 'https://dummyjson.com/products?limit=0';
 
 export async function obtenerProductos() {
 
@@ -34,4 +34,8 @@ export function obtenerProductoPorId(id){
         }
         return res.json();
     })
+}
+
+export function name(params) {
+    
 }

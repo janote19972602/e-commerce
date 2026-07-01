@@ -1,5 +1,5 @@
 import { obtenerProductoPorId } from './api.js'; 
-import { renderizarDetalleProducto } from './ui2.js'; 
+import { renderizarDetalleProducto } from './ui.js'; 
 import { cargarNavbar, cargarMenuLateral } from "./cargadorComponentes.js";
 import { crearEventosGlobal } from './eventosGlobal.js';
 import { crearEventosProducto  } from "./eventosProducto.js";

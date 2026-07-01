@@ -1,67 +1,4 @@
-/*fondo oscuro*/
-.overlay{
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0 , 0, 0.3);
-    width: 100%;
-    height: 100%;
-    display: none;
-}
-
-.mensajeCarrito{
-    background-color: #0f766e;
-}
-
-.overlay.activo{
-    display: block;
-}
-
-.carrito-menu-lateral{
-    background-color: #fff;
-    width: 300px;
-    min-height: 200px;
-    max-height: 500px;
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    display: flex;
-    flex-direction: column;
-    transform: translateX(calc(100% + 1rem));   
-    transition: transform 0.3s ease;
-    border-radius: 8px;
-    z-index: 20;
-    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.8);
-}
-
-.carrito-menu-lateral.activo{
-    transform: translateX(0%);
-
-}
-
-.carrito-contenidoProductos{
-    display: flex;
-    align-items: end; /* Alinea verticalmente al centro */
-    justify-content: start; /* todo el contenido lo coloca al principio de la pantalla */
-    gap: 4px; /* Espacio de separación entre el número y el texto */
-    padding: 15px;
-}
-
-
-h2{
-    text-align: center;
-}
-
-.carrito-lista{
-    flex: 1;
-    overflow-y: scroll;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 30px;
-}
-
-/* ******************COPIA CSS CARRITO*************** */
+/* *DESDE AQUI COMIENZAN LAS REGLAS HECHAS POR EL JS UI.JS *************** */
 .carrito-producto{
     display: flex;
     flex-direction: column;
@@ -69,15 +6,15 @@ h2{
     position: relative;
 }
 
-.carrito-producto img{
-    height: 90px;
-    width: 90px;
-}
-
 .contenedor-producto{
     display: flex;
     flex-direction: row;
     gap: 30px;
+}
+
+.carrito-producto img{
+    height: 100px;
+    width: 100px;
 }
 
 .informacion-producto{
@@ -87,16 +24,25 @@ h2{
     flex: 1;/*ocupa todo el espacio disponible*/
 }
 
-.totalProducto{
-    color: #0f766e; 
-    font-weight: bold;
-}
-
 .primera-parte{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
+
+.totalProducto{
+    color: #0f766e; 
+    font-weight: bold;
+}
+
+/* Alinea el precio y los botones en columna */
+.precio-contador-contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+}
+
 .segunda-parte{
     display: flex;
     align-items: center;
@@ -119,27 +65,6 @@ h2{
     font-weight: bolder;
 }
 
-/* Alinea el precio y los botones en columna */
-.precio-contador-contenedor {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    gap: 10px;
-}
-
-.mensaje-carrito{
-    text-align: center;        
-    color: #ff6b6b; 
-    font-size: 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-    font-weight: bold;   
-}
-
-
-.basurero-icono i{
-    color: #b91c1c;
-}
-
 .basurero-icono{
     display: flex;
     justify-content: center;
@@ -152,30 +77,99 @@ h2{
     gap: 10px;
 }
 
-.carrito-mostrar{
-  width: 90%;                   /* 4. El botón ocupa el 90% del div (casi todo) */
-  max-width: 400px;             /* 5. Evita que sea demasiado ancho en pantallas grandes */
-  padding: 15px 20px;           /* 6. "Lindo": Padding interno para mayor altura */
-  background-color: #28a745;    /* Color de fondo ejemplo */
-  color: white;                 /* Color de texto */
-  border: none;
-  border-radius: 8px;           /* Bordes redondeados */
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-/* Efecto al pasar el mouse (opcional) */
-.carrito-mostrar:hover {
-    background-color: #218838;
+.basurero-icono i{
+    color: #b91c1c;
 }
 
-.carrito-mostrar.ocultar{
+
+.mensaje-carrito{
+    text-align: center;        
+    color: #ff6b6b; 
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    font-weight: bold;   
+}
+
+
+/*ESTILOS AL CARRITO QUE APARECE EN EL DERECHO, EL ASIDE*/
+/*fondo oscuro*/
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0 , 0, 0.3);
+    width: 100%;
+    height: 100%;
     display: none;
 }
 
+.overlay.activo{
+    display: block;
+}
+
+.carrito-menu-lateral{
+    background-color: #fff;
+    width: 400px;
+    min-height: 200px;
+    max-height: 500px;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(calc(100% + 1rem));   
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+    z-index: 20;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.8);
+}
+
+.carrito-menu-lateral.activo{
+    transform: translateX(0%);
+}
+
+.carrito-contenido-producto{
+    display: flex;
+    align-items: end;
+    justify-content: start; /* todo el contenido lo coloca al principio de la pantalla */
+    gap: 4px; 
+    padding: 15px;
+}
+
+/*AQUI SE MOSTRARAN LOS PRODUCTOS AGREGADOS AL CARRO COMO UNA LISTA*/
+.carrito-lista{
+    flex: 1;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 30px;
+}
 
 
+/*BOTON CERRAR VER CARRITO Y ESTE CSS SE OCUPA EN EL HTML CARRITOLATERAL*/
+.carrito-acciones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12px;
+    margin-bottom: 10px;
+    
+}
 
+.carrito-mostrar {
+    background-color: rgb(61, 160, 61);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer;
+    transition: all 0.3s ease; /*Suaviza los efectos de ANIMACION*/
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para despegarlo del fondo */
+}
 
-
-
+.carrito-mostrar:hover {
+    background-color: #007BFF; /* se cambia de color a azul */
+}

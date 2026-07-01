@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="css/grillaProductos.css">
     <link rel="stylesheet" href="css/toolbar.css">
     <script type="module" src="js/app.js"></script>
-    <script type="module" src="js/eventosGlobal.js"></script>    
 </head>
 <body>
 
@@ -21,29 +20,26 @@
 
     <main>
         <div class="container">
-            
             <div class="toolbar">
                 <!-- Total de productos comprados -->
                 <div class="toolbar-total-productos">
-                    <span>30 productos comprados</span>
+                    <p><span id="toolbarCantidadProductos">0</span> Productos encontrados</p>
                 </div>
-
                 <!-- Buscador y Ordenador a la derecha -->
                 <div class="toolbar-derecha">
                     <div class="toolbar-buscador">
                         <input id="buscador" type="text" placeholder="Buscar...">
                     </div>
                     <div class="toolbar-ordenador">
-                        <select name="" id="">
+                        <select name="" id="toolbar-ordenar-producto">
                             <option value="">Ordenar</option>
                             <option value="">Precio de mayor a menor</option>
                         </select>
                     </div>
                 </div>
             </div>
-
-
-
+            
+            <!-- esta grilla sera la que cargue las tarjetas con los productos -->
             <div id="grillaProductos" class="grilla-productos"></div>
         </div>
     </main>
