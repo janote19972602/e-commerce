@@ -1,6 +1,7 @@
 //este modulo se encargara de agregar los eventos a los elementos correspondientes
 import { renderizarCarrito } from "./ui.js";
-import { agregarProductoAlCarrito, obtenerCarrito, obtenerTotalCarrito, eliminarProductoCarrito} from "./carrito.js";
+import { agregarProductoAlCarrito, obtenerTotalCarrito, eliminarProductoCarrito, aumentarCantidad, disminuirCantidad} from "./carrito.js";
+import { guardarCarrito, obtenerCarrito } from "./helpers/helperLocalStorage.js";
 
 let arregloCarrito = [];
 let menuLateral = '';
@@ -55,50 +56,36 @@ function manejarEventosMenuLateral(e) {
     const idProducto = Number(divCarritoProducto.dataset.idproducto); 
 
     //se devuelve el arreglo de objetos del carrito
-    let arregloCarritoProducto = obtenerCarrito();
-
-    //esta busca el producto por id en el "arregloCarritoProducto"
-    const productoDelCarrito = arregloCarritoProducto.find(p =>p.idProducto === idProducto);
+    let carrito = obtenerCarrito();
 
     //estos son de la info del carrito, el aside el menu lateral
     const botonMas = e.target.classList.contains('btn-mas');
     const botonMenos = e.target.classList.contains('btn-menos');
     const btnEliminar = e.target.closest('.basurero-icono');
     
-    //agregar producto
+    //aumenta la cantidad del producto
     if (botonMas) {
-        //1 hay que buscar idProducto
-        //2 buscar el producto en el arreglo carrito 
-        //3 sumar uno a la cantidad del objeto producto
-        //se suma a la cantidad del objeto producto
-        productoDelCarrito.cantidad++;
-        renderizarCarrito(arregloCarritoProducto);
+        aumentarCantidad(idProducto, carrito);
+        renderizarCarrito(obtenerCarrito());
     }
 
-    //quitar producto
+    //disminuir cantidad del producto
     if (botonMenos) {
-        //si el producto es 1 y se presiona el boton - , se cancela la compra con una funcion
-        if (productoDelCarrito.cantidad === 1) {
-            eliminarProductoCarrito(productoDelCarrito);
-        }else{/*si la cantidad es superior a 1 simplemente resta a la cantidad del producto*/
-            productoDelCarrito.cantidad--;
-        }
+        disminuirCantidad(idProducto, carrito);
         renderizarCarrito(obtenerCarrito());
     }
 
     //eliminar producto
     if (btnEliminar) {        
-        eliminarProductoCarrito(productoDelCarrito);
+        eliminarProductoCarrito(idProducto, carrito);
         renderizarCarrito(obtenerCarrito());
     }
 
-    //EJEMPLO
-    if (e.target.classList.contains('btn-detalle')) {
-
-        //ejemplo
+    //ejemplo real que me lleva al producto solamente
     window.location.href = `producto.html?id=${producto.id}`;
+    window.location.href = `productos.html?id=${producto.id}`;
 
-    }
+    
 }
 
 

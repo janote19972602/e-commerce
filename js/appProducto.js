@@ -1,8 +1,9 @@
 import { obtenerProductoPorId } from './api.js'; 
-import { renderizarDetalleProducto } from './ui.js'; 
+import { renderizarCarrito, renderizarDetalleProducto } from './ui.js'; 
 import { cargarNavbar, cargarMenuLateral } from "./cargadorComponentes.js";
 import { crearEventosGlobal } from './eventosGlobal.js';
 import { crearEventosProducto  } from "./eventosProducto.js";
+import { obtenerCarrito } from './helpers/helperLocalStorage.js';
 
 
 window.addEventListener('load', inicializarProducto); 
@@ -14,21 +15,18 @@ async function inicializarProducto() {
 
     crearEventosGlobal();
     crearEventosProducto();
+    const carrito = obtenerCarrito();
+    renderizarCarrito(carrito);
     
     
-    // Guardamos los parámetros de la URL
+    //
     const parametros = new URLSearchParams(window.location.search); 
+    //new URLSearchParams: Es una interfaz de JavaScript que crea un objeto fácil de leer y manipular. Sirve para gestionar e interpretar toda la parte de la URL encargada de realizar búsquedas o pasar datos
+    //window.location.search: devuelve la cadena de consulta (query string) de la URL actual
+    //parametros.get('id') = Es un método que busca dentro del objeto parametros y extrae el valor asignado a la clave específica que se encuentra entre paréntesis 
     const idProducto = parametros.get('id'); 
 
+    const producto = await obtenerProductoPorId(idProducto);
+    renderizarDetalleProducto(producto);
 
-    // Consumimos la API con su id y renderizamos la informacion
-    obtenerProductoPorId(idProducto) 
-
-        .then(producto => { 
-            renderizarDetalleProducto(producto); 
-        }) 
-        .catch(error => { 
-            console.log(error);
-            document.getElementById('detalleProducto').innerHTML = '<p class="error">Hubo un problema al cargar el producto. Intenta de nuevo más tarde.</p>'; 
-        }); 
 }

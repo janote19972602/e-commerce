@@ -1,7 +1,7 @@
 import { obtenerTotalCarrito } from "./carrito.js";
+import { guardarCarrito } from "./helpers/helperLocalStorage.js";
+import { obtenerProductosStore } from "./store/store.js";
 
-//encargado de renderizar el html 
-let productosGlobal = [];
 
 //funcion que es exportada y la cual se encarga de dibujar la UI GRILLA DE PRODUCTOS, la pagina principal
 export function crearGrillaProductos(productos) {
@@ -41,19 +41,6 @@ export function crearGrillaProductos(productos) {
     grilla.innerHTML = html;
 }
 
-export function establecerProductosGlobal(productos) {
-
-    //contiene todos los productos
-    productosGlobal = productos;
-}
-//por que no se le hizo un return a la variable "productosGlobal" en la funcion "establecerProductosGlobal"? y se hizo una funcion que si la retorna?
-export function obtenerProductosGlobal() {
-
-    //devuelve todos los productos del arreglo productosGlobal
-    return productosGlobal;
-    
-}
-
 function actualizarContadores() {
 
     document.getElementById('cantidadProductos').textContent = obtenerTotalCarrito();
@@ -61,8 +48,8 @@ function actualizarContadores() {
     
 }
 
-export function renderizarCarrito(arregloCarrito) {
-
+export async function renderizarCarrito(arregloCarrito) {
+    
     //se debe crear dinamicamente el contenido del menu lateral
     const listaCarrito = document.getElementById('listaCarrito');
     
@@ -76,7 +63,7 @@ export function renderizarCarrito(arregloCarrito) {
     }
 
     listaCarrito.innerHTML = '';
-    const arregloProductos = obtenerProductosGlobal();
+    const arregloProductos = await obtenerProductosStore();
     let html = '';
 
     arregloCarrito.forEach(carro => {
@@ -90,9 +77,9 @@ export function renderizarCarrito(arregloCarrito) {
                     <div class="contenedor-producto">  
                         <img src="${producto.thumbnail}"> 
                         <div class="informacion-producto">
-                            <div class="primera-parte">
+                            <div class="titulo-total-producto">
                                 <p class="titulo">${producto.title}</p>
-                                <p class="totalProducto">$${totalProducto}</p>
+                                <p class="total-producto">$${totalProducto}</p>
                             </div>
                             <div class="precio-contador-contenedor">
                                 <p class="precio">$${producto.price}</p>
@@ -115,11 +102,12 @@ export function renderizarCarrito(arregloCarrito) {
     })
     listaCarrito.innerHTML = html;
     actualizarContadores();
+    guardarCarrito(arregloCarrito);
     
 }
 
 //FUNCION QUE ARMA LA PAGINA EL DISEÑO DEL DETALLE DEL PRODUCTO, CREA TODO
-export function renderizarDetalleProducto(producto,arregloCarrito) {
+export function renderizarDetalleProducto(producto, arregloCarrito) {
 
     //buscar en el html con su id y se almacena en una const
     const productoGlobal = document.getElementById('detalleProducto');
@@ -142,24 +130,22 @@ export function renderizarDetalleProducto(producto,arregloCarrito) {
                         <span>${producto.discountPercentage}</span>
                     </div>
                     <div class="precio-producto">
-                        <span class="precio">${producto.price}</span>
+                        <span class="producto-precio">${producto.price}</span>
                         <span class="descuento">-10.48% OFF</span>
                     </div>
                     <span class="descripcion">${producto.description}</span>
-                    <div class="caja-de-compra-producto">
 
-                        <label>${producto.minimumOrderQuantity}</label>
-                        
+                    <div class="caja-de-compra-producto">
+                        <span class="js-texto-cantidad"></span>
                         <div class="cantidad-selector">
+                            <button class="btn-menos-producto ">-</button>
+                            <span class="cantidad-de-producto">0</span>
                             <button class="btn-mas-producto">+</button>
-                            <span class="cantidadDeProducto">1</span>
-                            <button class="btn-menos-producto">-</button>
                         </div>
                         <button class="boton-agregar-producto">Agregar al carrito</button>
-
-
                         <span class="estado-producto">In stock ${producto.stock}</span>
                     </div>  
+
                     <div class="lista">
                         <ul class="info-lista">
                             <li><strong>Sku:</strong> ${producto.sku}</li>

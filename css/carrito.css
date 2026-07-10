@@ -24,13 +24,13 @@
     flex: 1;/*ocupa todo el espacio disponible*/
 }
 
-.primera-parte{
+.titulo-total-producto{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.totalProducto{
+.total-producto{
     color: #0f766e; 
     font-weight: bold;
 }
@@ -80,7 +80,6 @@
 .basurero-icono i{
     color: #b91c1c;
 }
-
 
 .mensaje-carrito{
     text-align: center;        
@@ -154,7 +153,6 @@
     align-items: center;
     margin-top: 12px;
     margin-bottom: 10px;
-    
 }
 
 .carrito-mostrar {

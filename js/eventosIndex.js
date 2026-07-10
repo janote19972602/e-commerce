@@ -1,6 +1,8 @@
 //este modulo se encargara de agregar los eventos a los elementos correspondientes
-import { crearGrillaProductos, obtenerProductosGlobal,renderizarCarrito} from "./ui.js";
-import { agregarProductoAlCarrito, obtenerCarrito, obtenerTotalCarrito, eliminarProductoCarrito} from "./carrito.js";
+import { crearGrillaProductos, renderizarCarrito} from "./ui.js";
+import { agregarProductoAlCarrito, obtenerTotalCarrito, eliminarProductoCarrito} from "./carrito.js";
+import { obtenerCarrito } from "./helpers/helperLocalStorage.js";
+import { obtenerProductosStore } from "./store/store.js";
 
 let arregloCarrito = [];
 let menuLateral = '';
@@ -17,24 +19,21 @@ export function crearEventosIndex() {
     
 }
 
-//input que permite buscar los productos por el nombre
+//input que permite buscar los productos por el nombre hay que solucionar
 function manejarEventosInputBuscador(e) {
 
     //se guarda en una const todos los productos
-    const productosGlobal = obtenerProductosGlobal();
-
+    
     //se guarda en una const Esta línea de código captura el texto que el usuario acaba de escribir en un campo 
     const textoBuscado = e.target.value.toUpperCase();
 
     //se busca por el metodo filter, se diferencia 
     const productosFiltrados = productosGlobal.filter(producto => producto.title.toUpperCase().includes(textoBuscado));
     crearGrillaProductos(productosFiltrados);
-    
-    
 }
 
 //basicamente se accede a la grilla a la tarjeta al boton especialmente
-function manejarEventosGrilla(e) {
+async function manejarEventosGrilla(e) {
 
     //buscar la card 
     const card = e.target.closest('.card');
@@ -45,7 +44,7 @@ function manejarEventosGrilla(e) {
     //idProducto: almacena todo | Number:transformacion a entero ya que el id es un numero
     //card.dataset.idproduto: accede a la propiedad id(dataset) a traves de la card
 
-    const productoGlobal = obtenerProductosGlobal();
+    const productoGlobal = await obtenerProductosStore();
     //se almacena en una const productoGlobal todos los productos
 
     //se busca por id el producto y se deja guardado en producto
@@ -54,15 +53,14 @@ function manejarEventosGrilla(e) {
     // Comprobar si el elemento clickeado tiene la clase 'carrito-agregar'
     if (e.target.classList.contains('carrito-agregar')) {
 
-        //se agrega el producto al carro
-        const carrito = localStorage.getItem('carrito');
-        console.log(carrito);
-        
-        agregarProductoAlCarrito(producto, carrito);
-        //se guarda la funcion que obtiene el carrito con sus compras y despues la hace de nuevo
+        //llama a la funcion que recupera el estado actual del carro, los productos que ya se habian agregado
+        const carrito = obtenerCarrito(); 
+
+        //la funcion añade un producto y lo mete al arreglo
+        agregarProductoAlCarrito(producto, carrito, 1);
+
+        //actualiza el html con el producto recien agregado
         renderizarCarrito(carrito);
-        console.log(spanContador);
-        
         spanContador.textContent = obtenerTotalCarrito();    
     }
 

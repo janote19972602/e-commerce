@@ -7,7 +7,7 @@
 }
 
 /* LISTO PADRE DE 2 DIVS LA IMAGEN Y LA INFORMACION*/
-.contenedor-producto{
+.contenedor-productos{
   display: flex;
   flex-direction: row;
   background: #ffffff;
@@ -23,36 +23,43 @@
   flex-direction: column;
   gap: 15px;
   align-items: center;
-  
 }
 
 /* LISTO */
 .imagen-principal-producto{
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   border-radius: 8px;
   transition: transform 0.3s ease;
-  /* box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.8); */
-
+  margin-top: 40px;
 }
 
 .imagen-principal-producto:hover{
   transform: translateY(-4px); /* Eleva la imagen píxeles hacia arriba */
 }
 
-/*LISTO SEGUNDO HIJO SEGUNDO DIV*/
+/*ESTE ES EL SEGUNDO DIV*/
 .detalles-producto{
-  flex: 1.2;/**/
+  flex: 1.2;/*Indica cómo debe crecer este elemento en proporción a otros que estén en el mismo contenedo*/
   padding: 30px;
   display: flex;
   flex-direction: column;
 }
 
 .categoria-producto{
-  /* text-transform: uppercase; */
-  font-size: 0.85rem;/*13px*/
-  letter-spacing: 1px;
-  margin-bottom: 8px;
+/*  elegante */
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
+  
+  /* Visibilidad y legibilidad */
+  font-size: 1rem; 
+  font-weight: 600; 
+  color: #2c3e50; 
+  margin-bottom: 10px;
+  
+  /* Detalles de refinamiento */
+  letter-spacing: 0.05em; /* Ligeramente separadas las letras para mayor clase */
+  text-transform: uppercase; /* Transforma a mayúsculas para un look premium */
+
 }
 
 .producto-titulo{
@@ -67,6 +74,7 @@
   margin-bottom: 12px;
 }
 
+/*ESTE ES EL TERCER DIV*/
 .calificacion-producto{
   display: flex;
   align-items: center;
@@ -79,7 +87,7 @@
   align-items: center;
 }
 
-.precio{
+.producto-precio{
   font-size: 1.6rem;
   font-weight: bold;
 }
@@ -91,21 +99,69 @@
 }
 
 .descripcion{
+  margin-bottom: 50px;
+}
+
+/* ESTE ES EL CUARTO DIV Y ELContenedor principal */
+/* Contenedor principal: horizontal, centrado y con espacio entre elementos */
+.caja-de-compra-producto {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color: #f8f9fa;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  flex-wrap: wrap; /* Se adapta a pantallas más pequeñas si es necesario */
   margin-bottom: 20px;
 }
 
-.caja-de-compra-producto{
-  display: flex;
-  gap: 15px;
-  align-items: center;
-  margin-bottom: 25px;
+/* Movemos el texto de la cantidad arriba del selector */
+.js-texto-cantidad {
+  color: green;
+  font-size: 12px;
 }
 
-.selector-cantidad-producto{
-  padding: 10px;
+/* Selector de cantidad */
+.cantidad-selector {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ced4da;
   border-radius: 6px;
-  width: 80px;
+  background-color: #fff;
+  overflow: hidden;
+
 }
+
+/* Botones de + y - */
+.btn-mas-producto,
+.btn-menos-producto {
+  background-color: #f1f3f5;
+  border: none;
+  padding: 8px 14px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #495057;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-mas-producto:hover,
+.btn-menos-producto:hover {
+  background-color: #e9ecef;
+}
+
+/*  cantidad */
+.cantidad-de-producto {
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #212529;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* Botón Agregar al carrito */
 
 .boton-agregar-producto{
   color: white;
@@ -114,14 +170,52 @@
   border-radius: 6px;
   cursor: pointer;
   background-color: red;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+
+.boton-agregar-producto:hover {
+  background-color: #28a745; /* Un tono de azul más oscuro */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra + intensa */
+  transform: translateY(-2px); /* se ve un efecto de que se suben se elevan */
+  
+
+}
+
+.boton-agregar-producto:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* Estado del producto */
+.estado-producto {
+  font-size: 0.85rem;
+  color: #059669; /* Verde stock */
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.estado-producto::before {
+  width: 8px;
+  height: 8px;
+  background-color: #10b981;
+  border-radius: 50%;
 }
 
 .estado-producto{
   color: #059669;
   font-weight: 600;
 }
+/*****************************************************/
 
-/*Lista de detalles del producto*/
+/*ESTE ES EL SEXTO DIV Lista de detalles del producto*/
 .lista{  
   margin-bottom: 25px; 
   background-color: #f9f9f9;
