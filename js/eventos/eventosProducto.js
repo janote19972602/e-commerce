@@ -1,13 +1,12 @@
-import { obtenerProductoPorId } from "./api.js";
-import { agregarProductoAlCarrito } from "./carrito.js";
-import { obtenerCarrito } from "./helpers/helperLocalStorage.js";
-import { renderizarCarrito } from "./ui.js";
+import { obtenerProductoPorId } from "../api.js";
+import { agregarProductoAlCarrito } from "../carrito.js";
+import { obtenerCarrito } from "../helpers/helperLocalStorage.js";
+import { renderizarCarrito} from "../ui/uiCarrito.js";
 
 
 export function crearEventosProducto() {
     
     document.getElementById('detalleProducto').addEventListener('click', manejarEventosProducto);
-    // document.getElementById('detalleProductos').addEventListener('click',manejarEventosProductos);
 }
 
 async function manejarEventosProducto(e) {
@@ -28,7 +27,7 @@ async function manejarEventosProducto(e) {
 
     //ya que la cantidad es un string(texto) lo converti a numero
     let cantidad = parseInt(cantidadSpan.textContent);
-
+    
     //creamos en const los botones mas menos y el agregar y sus clases
     const btnMas = e.target.classList.contains('btn-mas-producto');
     const btnMenos = e.target.classList.contains('btn-menos-producto');

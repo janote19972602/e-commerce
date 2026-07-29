@@ -1,7 +1,7 @@
 //este modulo se encargara de agregar los eventos a los elementos correspondientes
-import { renderizarCarrito } from "./ui.js";
-import { agregarProductoAlCarrito, obtenerTotalCarrito, eliminarProductoCarrito, aumentarCantidad, disminuirCantidad} from "./carrito.js";
-import { guardarCarrito, obtenerCarrito } from "./helpers/helperLocalStorage.js";
+import { renderizarCarrito} from "../ui/uiCarrito.js";
+import { agregarProductoAlCarrito, obtenerTotalCarrito, eliminarProductoCarrito, aumentarCantidad, disminuirCantidad} from "../carrito.js";
+import { guardarCarrito, obtenerCarrito } from "../helpers/helperLocalStorage.js";
 
 let arregloCarrito = [];
 let menuLateral = '';
@@ -43,10 +43,18 @@ function cerrarCarrito() {
 //logica de los botones mas(+) y menos(-) en el menu lateral al seleccionar los botones + y -, como llego a esos tras la delegacion D.E
 function manejarEventosMenuLateral(e) {
 
-    if (e.target.classList.contains('carrito-mostrar')) {
-        return;        
+    const btnVerCarrito = document.getElementById('btnVerCarrito');
+
+    if (btnVerCarrito) {
+        console.log("hola");
+        
+        window.location.href = `carrito.html`;
+        return;
+    
     }
 
+    console.log(e.target);
+    
     //el producto se encuentra en un div con la clase carrito-producto y se guarda en una const, se escoge
     const divCarritoProducto = e.target.closest('.carrito-producto');  
     
@@ -62,6 +70,9 @@ function manejarEventosMenuLateral(e) {
     const botonMas = e.target.classList.contains('btn-mas');
     const botonMenos = e.target.classList.contains('btn-menos');
     const btnEliminar = e.target.closest('.basurero-icono');
+    
+    
+    
     
     //aumenta la cantidad del producto
     if (botonMas) {
@@ -81,9 +92,6 @@ function manejarEventosMenuLateral(e) {
         renderizarCarrito(obtenerCarrito());
     }
 
-    //ejemplo real que me lleva al producto solamente
-    window.location.href = `producto.html?id=${producto.id}`;
-    window.location.href = `productos.html?id=${producto.id}`;
 
     
 }

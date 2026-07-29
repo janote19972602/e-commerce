@@ -1,8 +1,9 @@
 //este modulo se encargara de agregar los eventos a los elementos correspondientes
-import { crearGrillaProductos, renderizarCarrito} from "./ui.js";
-import { agregarProductoAlCarrito, obtenerTotalCarrito, eliminarProductoCarrito} from "./carrito.js";
-import { obtenerCarrito } from "./helpers/helperLocalStorage.js";
-import { obtenerProductosStore } from "./store/store.js";
+import { crearGrillaProductos} from "../ui/uiGrillaProductos.js";
+import { renderizarCarrito} from "../ui/uiCarrito.js";
+import { agregarProductoAlCarrito, obtenerTotalCarrito, eliminarProductoCarrito} from "../carrito.js";
+import { obtenerCarrito } from "../helpers/helperLocalStorage.js";
+import { obtenerProductosStore } from "../store/store.js";
 
 let arregloCarrito = [];
 let menuLateral = '';

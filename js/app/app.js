@@ -1,9 +1,10 @@
-import { crearEventosGlobal } from "./eventosGlobal.js";
-import { crearEventosIndex } from "./eventosIndex.js";
-import { crearGrillaProductos, renderizarCarrito} from "./ui.js";
-import { cargarNavbar, cargarMenuLateral } from "./cargadorComponentes.js";
-import { obtenerProductosStore } from "./store/store.js";
-import { obtenerCarrito } from "./helpers/helperLocalStorage.js";
+import { crearEventosGlobal } from "../eventos/eventosGlobal.js";
+import { crearEventosIndex } from "../eventos/eventosIndex.js";
+import { crearGrillaProductos} from "../ui/uiGrillaProductos.js";
+import { renderizarCarrito} from "../ui/uiCarrito.js";
+import { cargarNavbar, cargarMenuLateral } from "../cargadorComponentes.js";
+import { obtenerProductosStore } from "../store/store.js";
+import { obtenerCarrito } from "../helpers/helperLocalStorage.js";
 
 
 //cerebro del proyecto

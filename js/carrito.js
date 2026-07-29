@@ -1,4 +1,4 @@
-import { renderizarCarrito } from "./ui.js";
+import { renderizarCarrito} from "./ui/uiCarrito.js";
 import { guardarCarrito, obtenerCarrito } from "./helpers/helperLocalStorage.js";
 
 //esta funcion sirve para agregar mas de un producto al carro pregunta y responde

@@ -30,7 +30,7 @@
   width: 90%;
   height: 90%;
   object-position: center; /* Centra la imagen */
-  transition: transform 0.5s ease; /* Transición suave */
+  transition: transform 0.5s ease; /* Transicion suave */
 }
 
 .card img:hover {
@@ -65,7 +65,7 @@
 /*ESTILOS CSS PARA EL BOTON AGREGAR AL CARRITO*/
 .boton-agregar {
   display: flex;
-  justify-content: center; /* Centra el botón */
+  justify-content: center; /* Centra el boton */
   align-items: center;
   padding: 15px;
 }
@@ -79,13 +79,13 @@
   border: none;
   border-radius: 8px; /* bordes redondeados */
   cursor: pointer;
-  transition: all 0.3s ease; /*Suaviza los efectos de animación*/
+  transition: all 0.3s ease; /*Suaviza los efectos de animacion*/
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra  */
 }
 
-/* Efecto cuando el usuario pasa el mouse por encima */
+/* Efecto cuando se pasa el mouse por encima */
 .carrito-agregar:hover {
-  background-color: #28a745; /* Un tono de azul más oscuro */
+  background-color: #28a745; /* Un tono verde */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra + intensa */
   transform: translateY(-2px); /* se ve un efecto de que se suben se elevan */
   

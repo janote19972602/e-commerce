@@ -7,7 +7,7 @@
 }
 
 /* LISTO PADRE DE 2 DIVS LA IMAGEN Y LA INFORMACION*/
-.contenedor-productos{
+.contenedor-producto{
   display: flex;
   flex-direction: row;
   background: #ffffff;
@@ -35,30 +35,25 @@
 }
 
 .imagen-principal-producto:hover{
-  transform: translateY(-4px); /* Eleva la imagen píxeles hacia arriba */
+  transform: translateY(-4px); /* Eleva la imagen */
 }
 
 /*ESTE ES EL SEGUNDO DIV*/
 .detalles-producto{
-  flex: 1.2;/*Indica cómo debe crecer este elemento en proporción a otros que estén en el mismo contenedo*/
+  flex: 1.2;/*Indica cómo debe crecer este elemento */
   padding: 30px;
   display: flex;
   flex-direction: column;
 }
 
 .categoria-producto{
-/*  elegante */
   font-family: 'Playfair Display', 'Cormorant Garamond', serif;
-  
-  /* Visibilidad y legibilidad */
   font-size: 1rem; 
   font-weight: 600; 
   color: #2c3e50; 
   margin-bottom: 10px;
-  
-  /* Detalles de refinamiento */
-  letter-spacing: 0.05em; /* Ligeramente separadas las letras para mayor clase */
-  text-transform: uppercase; /* Transforma a mayúsculas para un look premium */
+  letter-spacing: 0.05em; /*separa las letras*/
+  text-transform: uppercase; /* Transforma a mayuscula */
 
 }
 
@@ -130,7 +125,6 @@
   border-radius: 6px;
   background-color: #fff;
   overflow: hidden;
-
 }
 
 /* Botones de + y - */
@@ -161,36 +155,31 @@
   text-align: center;
 }
 
-/* Botón Agregar al carrito */
-
+/* boton Aagregar al carrito */
 .boton-agregar-producto{
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 6px;
-  cursor: pointer;
-  background-color: red;
-  padding: 10px 20px;
-  font-size: 15px;
+  background-color: #007BFF; 
+  color: #ffffff;
+  font-size: 1rem;
   font-weight: 600;
-  transition: all 0.3s ease;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease; /*Suaviza los efectos de animacion*/
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra  */
 }
 
 
 .boton-agregar-producto:hover {
-  background-color: #28a745; /* Un tono de azul más oscuro */
+  background-color: #28a745; /* verde */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra + intensa */
   transform: translateY(-2px); /* se ve un efecto de que se suben se elevan */
-  
-
 }
 
 .boton-agregar-producto:active {
   transform: translateY(0);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
-
 
 /* Estado del producto */
 .estado-producto {
@@ -295,8 +284,8 @@
 
 .tarjeta-qr {
   display: flex;
-  flex-direction: column; /* Alinea los elementos verticalmente */
-  gap: 12px;              /* Espacio entre el código, la imagen y la fecha */
+  flex-direction: column; 
+  gap: 12px;             
   background-color: #ffffff;
   padding: 20px;
   border-radius: 12px;
