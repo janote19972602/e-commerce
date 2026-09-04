@@ -49,22 +49,28 @@
     gap: 10px; 
 } 
 
-.contenedor-botones{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    
-}/*afecta a los botones + y -*/
-.contenedor-botones button{
-    width: 20px;
-    height: 20px;
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bolder;
+.btn-incrementar-cantidad,
+.btn-decrementar-cantidad {
+  background-color: #445261;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  width: 20px;
+  height: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+
+/* .btn-incrementar-cantidad{
+    color: #007BFF;
+} */
+
+/*El icono del basurero */
 .basurero-icono{
     display: flex;
     justify-content: center;

@@ -36,7 +36,7 @@ export async function renderizarCarrito(arregloCarrito) {
         //construir dinamicamrnte el menu lateral de los productos, la informacion de cada uno, muestra la info y se puede decidir si se compra o no
         html += `<div class="carrito-producto" data-idproducto="${producto.id}">
                     <div class="contenedor-producto">  
-                        <img src="${producto.thumbnail}"> 
+                        <img class="producto-imagen" src="${producto.thumbnail}"> 
                         <div class="informacion-producto">
                             <div class="titulo-total-producto">
                                 <p class="titulo">${producto.title}</p>
@@ -45,10 +45,10 @@ export async function renderizarCarrito(arregloCarrito) {
                             <div class="precio-contador-contenedor">
                                 <p class="precio">$${producto.price}</p>
                                 <div class="segunda-parte">
-                                    <div class="contenedor-botones">
-                                        <button class="btn-mas">+</button>
-                                        <p>${carro.cantidad}</p>
-                                        <button class="btn-menos">-</button>
+                                    <div class="carrito-acciones">
+                                        <button class="btn-incrementar-cantidad">+</button>
+                                        <span class="producto-cantidad">${carro.cantidad}</span>
+                                        <button class="btn-decrementar-cantidad">-</button>
                                     </div>
                                     <div class="basurero-icono">
                                         <i class="fa-solid fa-trash-can"></i>

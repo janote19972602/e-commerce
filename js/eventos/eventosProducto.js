@@ -7,6 +7,7 @@ import { renderizarCarrito} from "../ui/uiCarrito.js";
 export function crearEventosProducto() {
     
     document.getElementById('detalleProducto').addEventListener('click', manejarEventosProducto);
+    
 }
 
 async function manejarEventosProducto(e) {
@@ -19,7 +20,7 @@ async function manejarEventosProducto(e) {
     const carrito = obtenerCarrito();
 
     //esta linea de codigo Busca dentro del elemento padre (e.target.parentElement) un elemento hijo que tenga la clase .cantidad-de-producto
-    const cantidadSpan = contenedorProducto.querySelector('.cantidad-de-producto');    
+    const cantidadSpan = contenedorProducto.querySelector('.producto-cantidad');    
 
     //esta linea de codigo NO funciona porque el metodo constains no devuelve un elemento html,
     //devuelve un valor booleano, true o false
@@ -29,13 +30,13 @@ async function manejarEventosProducto(e) {
     let cantidad = parseInt(cantidadSpan.textContent);
     
     //creamos en const los botones mas menos y el agregar y sus clases
-    const btnMas = e.target.classList.contains('btn-mas-producto');
-    const btnMenos = e.target.classList.contains('btn-menos-producto');
+    const btnMas = e.target.classList.contains('btn-incrementar-cantidad');
+    const btnMenos = e.target.classList.contains('btn-decrementar-cantidad');
     const btnAgregar = e.target.classList.contains('boton-agregar-producto');
 
     // Encontramos los elementos específicos dentro de esa caja de producto
-    const cajaProducto = e.target.closest('.caja-de-compra-producto');
-    const spanCantidad = cajaProducto.querySelector('.cantidad-de-producto');
+    const cajaProducto = e.target.closest('.card-compra');
+    const spanCantidad = cajaProducto.querySelector('.producto-cantidad');
     const textoEstado = cajaProducto.querySelector('.js-texto-cantidad');  
     
     //boton mas +

@@ -17,19 +17,21 @@ export function crearEventosIndex() {
     spanContador = document.getElementById('contador');
     const buscadorProductos = document.getElementById('buscador');
     buscadorProductos.addEventListener('input', manejarEventosInputBuscador);
-    
+   
+   
 }
 
 //input que permite buscar los productos por el nombre hay que solucionar
-function manejarEventosInputBuscador(e) {
+ async function manejarEventosInputBuscador(e) {
 
     //se guarda en una const todos los productos
+    const productos = await obtenerProductosStore();
     
     //se guarda en una const Esta línea de código captura el texto que el usuario acaba de escribir en un campo 
     const textoBuscado = e.target.value.toUpperCase();
 
     //se busca por el metodo filter, se diferencia 
-    const productosFiltrados = productosGlobal.filter(producto => producto.title.toUpperCase().includes(textoBuscado));
+    const productosFiltrados = productos.filter(producto => producto.title.toUpperCase().includes(textoBuscado));
     crearGrillaProductos(productosFiltrados);
 }
 
@@ -67,10 +69,10 @@ async function manejarEventosGrilla(e) {
 
     if (e.target.classList.contains('llamar')) {
         window.location.href = `producto.html?id=${producto.id}`;
-    }
-
-    
+    }  
 }
+
+
 
 
 

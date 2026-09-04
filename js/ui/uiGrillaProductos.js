@@ -23,9 +23,15 @@ export function crearGrillaProductos(productos) {
                     </a>
                     <div class"info-producto">
                         <p class="card-titulo">${producto.title}</p>
-                        <p class="card-categoria">${producto.category}</p>
-                        <p class="card-precio">$${producto.price}</p>
+                        <span class="card-categoria">${producto.category}</span>
                         <p class="card-rating">${rating}</p>
+                    </div>
+                    <div class="producto-precio">
+                        <div class="precio-final-descuento">
+                            <span class="precio-final">${(producto.price - (producto.price * producto.discountPercentage / 100)).toFixed(2)}</span>
+                            <span class="precio-descuento">-${producto.discountPercentage}</span>
+                        </div>
+                        <span class="card-precio">$${producto.price}</span>
                     </div>
                     <div class="boton-agregar">
                         <button class="carrito-agregar">Agregar al carrito</button>

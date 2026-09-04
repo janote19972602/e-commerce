@@ -12,7 +12,9 @@ export function crearMapperProducto(producto, productoCarrito) {
     precioOriginal: precioProducto,
     descuentoDeProducto: descuentoProducto,
     cantidad: productoCarrito.cantidad,
-    imagenProducto: producto.thumbnail
-
+    imagenProducto: producto.thumbnail,
+    tituloProducto: producto.title,
+    marcaProducto: producto.brand,
+    
   };
 }

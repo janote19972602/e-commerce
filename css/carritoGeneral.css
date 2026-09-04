@@ -11,7 +11,7 @@ body{
 }
 
 .resumen-compras{
-  font-family: 'Playfair Display', serif, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   background-color: #d4af37;
 }
 .contenedor{
@@ -38,13 +38,14 @@ body{
   gap: 20px;          
   padding: 12px;
   background-color: #e2d8d8;
-  width: 80%;
+  width: 100%;
+  height: 180px;
 }
 
 /*primer div*/
 .producto-imagen {
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
   object-fit: cover;
 }
 
@@ -73,101 +74,73 @@ body{
 .precio {
   display: flex;
   align-items: flex-start;
+  flex-direction: row;
   gap: 12px;
 }
 
-/* Precio final con descuento */
-.producto-precio .precio span:first-child {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #e53e3e; 
-}
-
-/* Etiqueta de descuento (Badge verde) */
-.producto-precio .precio span:last-child {
-  background-color: #def7ec;
-  color: #03543f;
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 2px 6px;
-  border-radius: 4px;
-}
-
-/* Precio original tachado (Pequeño y gris) */
+/* Precio original tachado */
 .producto-precio > span {
   font-size: 0.875rem;
   color: #9ca3af;
-  text-decoration: line-through;
+  text-decoration: line-through;/*efecta que tacha con una linea*/
 }
 
+.precio-descuento{
+  background-color: #ff0000; 
+  color: #ffffff;          
+  padding: 1px 3px;     
+  border-radius: 3px;   
+  font-weight: bold;     
+}
 
 /*cuarto div*/
 .producto-botones {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   width: 100%;
   margin-top: auto; /* Manda los botones al final del contenedor */
 }
 
-/* Selector de cantidad*/
-.contador-mas-menos {
-  display: flex;
-  align-items: center;
-  background-color: #f3f4f6;
-  border-radius: 8px;
-  padding: 4px;
-  width: fit-content;/*Hace que el ancho del contenedor se ajuste exactamente al tamaño de lo que tenga adentro*/
-}
-
-/*Botones de + y -*/
-.btn {
-  background-color: #6342de;
-  color: #ffffff;
-  border: none;
-  width: 32px;
-  height: 32px;
-  border-radius: 6px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.3s ease;
-}
-
 .btn:hover {
-  background-color: #28a745; /* verde */
+  background-color: #28a745;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra + intensa */
   transform: translateY(-2px); /* se ve un efecto de que se suben se elevan */
-  
+}
+.producto-puntitos {
+  cursor: pointer;
+  font-size: 20px;
+  padding: 5px;
 }
 
-.numero {
-  width: 36px;
-  text-align: center;
-  font-size: 15px;
-  font-weight: 600;
-  color: #111827;
+.producto-botones {
+  position: relative;/*Convierte a este elemento en el punto de referencia para que cualquier hijo con posición absoluta se ubique dentro de él*/
+  /* Añade un espacio arriba si el texto choca con los puntos */
+  padding-top: 105px; 
 }
 
-.texto-limite {
-  font-size: 12px;
-  color: #6b7280;
-  margin-left: 4px;
+.producto-puntitos {
+  position: absolute;/* Saca el elemento del flujo normal de la página y permite ubicarlo exactamente donde se quiera dentro de la caja principal*/
+  top: 0;/*Pone los puntos pegados al borde de arriba*/
+  right: 0;/*Pone los puntos pegados al borde de la derecha.*/
+  cursor: pointer;
 }
+/*Las principales diferencias entre position: relative; y position: absolute; son el flujo del documento, el elemento de referencia para moverse y el espacio que ocupan*/
+
+
 
 
 /*************EL OTRO HTML***********************/
 /*crea el contenido del resumen*/
 .resumen-compra {
+  width: 350px;
+  max-width: 100%;
   padding: 20px;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   background-color: #ffffff;
-  font-family: sans-serif;
   box-sizing: border-box;
+  transform: translateY(20px);
 }
 
 /*primera fila donde aparece los productos y el valor*/
@@ -176,6 +149,7 @@ body{
   justify-content: space-between;/*separa a los costados */
   align-items: center;
   padding: 12px 0;
+  
 }
 
 /*segunda fila donde aparece el total y el valor*/
@@ -184,25 +158,36 @@ body{
   justify-content: space-between;
   align-items: center;
   padding: 12px 0;
-  font-weight: bold;
+  /* font-weight: bold; */
   font-size: 1.1rem;
   color: #111111;
   border-top: 1px solid #f0f0f0;
   /* margin-top: 8px; */
 }
 
+.resumen-acordeon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  font-size: 1.1rem;
+  color: #111111;
+  border-top: 1px solid #f0f0f0;
+}
+
 #btnCompra {
   width: 100%;
-  margin-top: 15px;
-  padding: 14px;
-  background-color: #007bff;
-  color: #ffffff;
-  border: none;
-  border-radius: 6px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
+  background-color: #403f3f; 
+  color: #ffffff;            
+  border: none;              
+  padding: 12px 24px;        /* Espaciado interno (arriba abajo y los lados) */
+  font-size: 16px;           
+  font-weight: bold;         
+  border-radius: 30px;        
+  cursor: pointer;           
+  transition: background-color 0.3s ease; /* Efecto suave */
+  /* letter-spacing: 1.5px; */
+  font-family: Arial, Helvetica, sans-serif;;
 }
 
 .btnCompra button:hover {

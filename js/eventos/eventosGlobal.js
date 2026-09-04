@@ -21,6 +21,7 @@ export function crearEventosGlobal() {
     overlay.addEventListener('click', cerrarCarrito); 
 
     menuLateral.addEventListener('click', manejarEventosMenuLateral);
+    document.getElementById('navbarLogo').addEventListener('click', handlerLogo);
 
 }
 
@@ -43,17 +44,11 @@ function cerrarCarrito() {
 //logica de los botones mas(+) y menos(-) en el menu lateral al seleccionar los botones + y -, como llego a esos tras la delegacion D.E
 function manejarEventosMenuLateral(e) {
 
-    const btnVerCarrito = document.getElementById('btnVerCarrito');
-
-    if (btnVerCarrito) {
-        console.log("hola");
-        
-        window.location.href = `carrito.html`;
+    if (e.target.classList.contains('carrito-mostrar')) {
+        console.log("entro por clase");
+        window.location.href = 'carrito.html';
         return;
-    
     }
-
-    console.log(e.target);
     
     //el producto se encuentra en un div con la clase carrito-producto y se guarda en una const, se escoge
     const divCarritoProducto = e.target.closest('.carrito-producto');  
@@ -67,17 +62,16 @@ function manejarEventosMenuLateral(e) {
     let carrito = obtenerCarrito();
 
     //estos son de la info del carrito, el aside el menu lateral
-    const botonMas = e.target.classList.contains('btn-mas');
-    const botonMenos = e.target.classList.contains('btn-menos');
+    const botonMas = e.target.classList.contains('btn-incrementar-cantidad');
+    const botonMenos = e.target.classList.contains('btn-decrementar-cantidad');
     const btnEliminar = e.target.closest('.basurero-icono');
-    
-    
-    
-    
+    const imagenProducto = e.target.classList.contains('producto-imagen');
+
     //aumenta la cantidad del producto
     if (botonMas) {
         aumentarCantidad(idProducto, carrito);
         renderizarCarrito(obtenerCarrito());
+        
     }
 
     //disminuir cantidad del producto
@@ -92,10 +86,23 @@ function manejarEventosMenuLateral(e) {
         renderizarCarrito(obtenerCarrito());
     }
 
+    //se accede al producto haciendole click a la imagen
+    if (imagenProducto) {
+
+        window.location.href = `producto.html?id=${idProducto}`;
+
+    }
 
     
 }
 
+function handlerLogo(e) {
+
+    console.log('click');
+    
+    window.location.href = 'index.html';
+    
+}
 
 
 

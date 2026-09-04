@@ -12,7 +12,6 @@ export function renderizarDetalleProducto(producto, arregloCarrito) {
                 <div class="galeria-producto">
                     <img src="${producto.thumbnail}" class="imagen-principal-producto">
                 </div>
-                
                 <div class="detalles-producto">
                     <span class="categoria-producto">${producto.tags[1]}</span>
                     <h1 class="producto-titulo">${producto.title}</h1>
@@ -23,19 +22,22 @@ export function renderizarDetalleProducto(producto, arregloCarrito) {
                     </div>
                     <div class="precio-producto">
                         <span class="producto-precio">${producto.price}</span>
-                        <span class="descuento">-10.48% OFF</span>
+                        <span class="descuento">-${producto.discountPercentage}</span>
                     </div>
                     <span class="descripcion">${producto.description}</span>
 
-                    <div class="caja-de-compra-producto">
+                    <div class="card-compra">
                         <span class="js-texto-cantidad"></span>
-                        <div class="cantidad-selector">
-                            <button class="btn-menos-producto">-</button>
-                            <span class="cantidad-de-producto">0</span>
-                            <button class="btn-mas-producto">+</button>
+                        <div class="carrito-acciones">
+                            <button class="btn-incrementar-cantidad">+</button>
+                            <span class="producto-cantidad">1</span>
+                            <button class="btn-decrementar-cantidad">-</button> 
                         </div>
+                        
                         <button class="boton-agregar-producto">Agregar al carrito</button>
                         <span class="estado-producto">In stock ${producto.stock}</span>
+
+                        
                     </div>  
                     <div class="lista">
                         <ul class="info-lista">

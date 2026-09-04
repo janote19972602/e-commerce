@@ -25,6 +25,10 @@ async function inicializarProducto() {
     //parametros.get('id') = Es un método que busca dentro del objeto parametros y extrae el valor asignado a la clave específica que se encuentra entre paréntesis 
     const idProducto = parametros.get('id'); 
 
+    if (!idProducto) {
+        return;
+    }
+
     const producto = await obtenerProductoPorId(idProducto);
     renderizarDetalleProducto(producto);
 

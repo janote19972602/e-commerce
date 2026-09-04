@@ -40,8 +40,7 @@
 /*div padre de titulo categoria precio y rating*/
 .info-producto{
   display: flex;               
-  flex-direction: column;      
-  gap: 40px;                   
+  flex-direction: column;       
   font-family: Arial, sans-serif;
 }
 
@@ -54,12 +53,35 @@
   color: #666; font-size: 0.9em;
 }
 
-.card-precio{
-  color: #0f766e; font-weight: bold;
-}
-
 .card-rating{
   color: #f1c40f;
+}
+
+/*div padre de los precios y descuentos*/
+.producto-precio{
+  display: flex;
+  flex-direction: column;
+  align-items: self-start;
+  gap: 4px;
+}
+
+.precio-final-descuento{
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.precio-descuento{
+  background-color: #ff0000; /* Fondo rojo */
+  color: #ffffff;            /* Número en blanco */
+  padding: 1px 5px;          /* Espacio interno para que parezca una etiqueta */
+  border-radius: 3px;        /* Bordes redondeados opcionales */
+  font-weight: bold;         /* Texto en negrita opcional */
+}
+
+.card-precio{
+  text-decoration: line-through;/*Para tachar un texto -------*/
 }
 
 /*ESTILOS CSS PARA EL BOTON AGREGAR AL CARRITO*/
